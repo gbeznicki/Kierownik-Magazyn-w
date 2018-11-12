@@ -72,6 +72,7 @@
             this.buttonEmployees.Text = "Pracownicy";
             this.buttonEmployees.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
             // 
             // MainForm
             // 

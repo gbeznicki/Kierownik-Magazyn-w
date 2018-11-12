@@ -1,12 +1,13 @@
+using Kierownik_Magazynów.Database;
 using System.Data;
 
 namespace AgenciesManagement
 {
 	public class AgencyManagementRepository
 	{
-		//private AgencyEntities agencyDataBase;
+        private AgencyEntities agencyDataBase;
 
-		public DataTable GetRanges()
+        public DataTable GetRanges()
 		{
 			return null;
 		}

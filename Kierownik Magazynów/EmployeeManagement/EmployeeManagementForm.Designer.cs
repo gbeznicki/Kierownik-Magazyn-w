@@ -31,29 +31,31 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManagementForm));
             this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainerDetailsNotes = new System.Windows.Forms.SplitContainer();
             this.listViewDetails = new System.Windows.Forms.ListView();
-            this.listViewNotes = new System.Windows.Forms.ListView();
-            this.buttonAddNote = new System.Windows.Forms.Button();
-            this.buttonDeleteNote = new System.Windows.Forms.Button();
-            this.buttonEditNote = new System.Windows.Forms.Button();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonAddNote = new System.Windows.Forms.Button();
+            this.buttonEditNote = new System.Windows.Forms.Button();
+            this.buttonDeleteNote = new System.Windows.Forms.Button();
+            this.listViewNotes = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainerMain.Panel1.SuspendLayout();
+            this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerDetailsNotes)).BeginInit();
+            this.splitContainerDetailsNotes.Panel1.SuspendLayout();
+            this.splitContainerDetailsNotes.Panel2.SuspendLayout();
+            this.splitContainerDetailsNotes.SuspendLayout();
             this.flowLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewEmployees
             // 
+            this.dataGridViewEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewEmployees.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewEmployees.Name = "dataGridViewEmployees";
             this.dataGridViewEmployees.Size = new System.Drawing.Size(227, 652);
@@ -67,78 +69,44 @@
             // 
             // splitContainerMain.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridViewEmployees);
+            this.splitContainerMain.Panel1.Controls.Add(this.dataGridViewEmployees);
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer1);
-            this.splitContainerMain.Size = new System.Drawing.Size(1059, 652);
+            this.splitContainerMain.Panel2.Controls.Add(this.splitContainerDetailsNotes);
+            this.splitContainerMain.Size = new System.Drawing.Size(1063, 652);
             this.splitContainerMain.SplitterDistance = 227;
             this.splitContainerMain.TabIndex = 1;
             // 
-            // splitContainer1
+            // splitContainerDetailsNotes
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainerDetailsNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerDetailsNotes.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerDetailsNotes.Name = "splitContainerDetailsNotes";
+            this.splitContainerDetailsNotes.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // splitContainerDetailsNotes.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listViewDetails);
+            this.splitContainerDetailsNotes.Panel1.Controls.Add(this.listViewDetails);
             // 
-            // splitContainer1.Panel2
+            // splitContainerDetailsNotes.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanelButtons);
-            this.splitContainer1.Panel2.Controls.Add(this.listViewNotes);
-            this.splitContainer1.Size = new System.Drawing.Size(828, 652);
-            this.splitContainer1.SplitterDistance = 241;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainerDetailsNotes.Panel2.Controls.Add(this.flowLayoutPanelButtons);
+            this.splitContainerDetailsNotes.Panel2.Controls.Add(this.listViewNotes);
+            this.splitContainerDetailsNotes.Size = new System.Drawing.Size(828, 652);
+            this.splitContainerDetailsNotes.SplitterDistance = 265;
+            this.splitContainerDetailsNotes.TabIndex = 0;
             // 
             // listViewDetails
             // 
-            this.listViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewDetails.Location = new System.Drawing.Point(0, 0);
             this.listViewDetails.Name = "listViewDetails";
-            this.listViewDetails.Size = new System.Drawing.Size(828, 241);
+            this.listViewDetails.Size = new System.Drawing.Size(828, 265);
             this.listViewDetails.TabIndex = 0;
             this.listViewDetails.UseCompatibleStateImageBehavior = false;
-            // 
-            // listViewNotes
-            // 
-            this.listViewNotes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.listViewNotes.Location = new System.Drawing.Point(0, 0);
-            this.listViewNotes.Name = "listViewNotes";
-            this.listViewNotes.Size = new System.Drawing.Size(828, 334);
-            this.listViewNotes.TabIndex = 0;
-            this.listViewNotes.UseCompatibleStateImageBehavior = false;
-            // 
-            // buttonAddNote
-            // 
-            this.buttonAddNote.Location = new System.Drawing.Point(3, 3);
-            this.buttonAddNote.Name = "buttonAddNote";
-            this.buttonAddNote.Size = new System.Drawing.Size(255, 53);
-            this.buttonAddNote.TabIndex = 1;
-            this.buttonAddNote.Text = "Dodaj notatkę";
-            this.buttonAddNote.UseVisualStyleBackColor = true;
-            // 
-            // buttonDeleteNote
-            // 
-            this.buttonDeleteNote.Location = new System.Drawing.Point(550, 3);
-            this.buttonDeleteNote.Name = "buttonDeleteNote";
-            this.buttonDeleteNote.Size = new System.Drawing.Size(273, 53);
-            this.buttonDeleteNote.TabIndex = 2;
-            this.buttonDeleteNote.Text = "Usuń notatkę";
-            this.buttonDeleteNote.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditNote
-            // 
-            this.buttonEditNote.Location = new System.Drawing.Point(264, 3);
-            this.buttonEditNote.Name = "buttonEditNote";
-            this.buttonEditNote.Size = new System.Drawing.Size(280, 53);
-            this.buttonEditNote.TabIndex = 3;
-            this.buttonEditNote.Text = "Edytuj notatkę";
-            this.buttonEditNote.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanelButtons
             // 
@@ -146,29 +114,67 @@
             this.flowLayoutPanelButtons.Controls.Add(this.buttonEditNote);
             this.flowLayoutPanelButtons.Controls.Add(this.buttonDeleteNote);
             this.flowLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(0, 340);
+            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(0, 316);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
             this.flowLayoutPanelButtons.Size = new System.Drawing.Size(828, 67);
             this.flowLayoutPanelButtons.TabIndex = 4;
+            // 
+            // buttonAddNote
+            // 
+            this.buttonAddNote.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddNote.Name = "buttonAddNote";
+            this.buttonAddNote.Size = new System.Drawing.Size(270, 53);
+            this.buttonAddNote.TabIndex = 1;
+            this.buttonAddNote.Text = "Dodaj notatkę";
+            this.buttonAddNote.UseVisualStyleBackColor = true;
+            // 
+            // buttonEditNote
+            // 
+            this.buttonEditNote.Location = new System.Drawing.Point(279, 3);
+            this.buttonEditNote.Name = "buttonEditNote";
+            this.buttonEditNote.Size = new System.Drawing.Size(270, 53);
+            this.buttonEditNote.TabIndex = 3;
+            this.buttonEditNote.Text = "Edytuj notatkę";
+            this.buttonEditNote.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteNote
+            // 
+            this.buttonDeleteNote.Location = new System.Drawing.Point(555, 3);
+            this.buttonDeleteNote.Name = "buttonDeleteNote";
+            this.buttonDeleteNote.Size = new System.Drawing.Size(270, 53);
+            this.buttonDeleteNote.TabIndex = 2;
+            this.buttonDeleteNote.Text = "Usuń notatkę";
+            this.buttonDeleteNote.UseVisualStyleBackColor = true;
+            // 
+            // listViewNotes
+            // 
+            this.listViewNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewNotes.Location = new System.Drawing.Point(0, 0);
+            this.listViewNotes.Name = "listViewNotes";
+            this.listViewNotes.Size = new System.Drawing.Size(828, 313);
+            this.listViewNotes.TabIndex = 0;
+            this.listViewNotes.UseCompatibleStateImageBehavior = false;
             // 
             // EmployeeManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 652);
+            this.ClientSize = new System.Drawing.Size(1063, 652);
             this.Controls.Add(this.splitContainerMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EmployeeManagementForm";
             this.Text = "EmployeeManagementForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainerMain.Panel1.ResumeLayout(false);
+            this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.splitContainerDetailsNotes.Panel1.ResumeLayout(false);
+            this.splitContainerDetailsNotes.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerDetailsNotes)).EndInit();
+            this.splitContainerDetailsNotes.ResumeLayout(false);
             this.flowLayoutPanelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -178,7 +184,7 @@
 
         private System.Windows.Forms.DataGridView dataGridViewEmployees;
         private System.Windows.Forms.SplitContainer splitContainerMain;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainerDetailsNotes;
         private System.Windows.Forms.ListView listViewDetails;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelButtons;
         private System.Windows.Forms.Button buttonEditNote;

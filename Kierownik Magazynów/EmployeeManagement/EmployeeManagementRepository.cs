@@ -1,12 +1,13 @@
+using Kierownik_Magazynów.Database;
 using System.Data;
 
 namespace EmployeeManagement
 {
 	public class EmployeeManagementRepository
 	{
-		//private EmployeeEntities employeeDataBase;
+        private EmployeeEntities employeeDataBase;
 
-		public DataTable GetEmployees()
+        public DataTable GetEmployees()
 		{
 			return null;
 		}

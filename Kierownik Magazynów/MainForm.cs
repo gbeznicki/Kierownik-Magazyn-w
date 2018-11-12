@@ -24,5 +24,10 @@ namespace Kierownik_Magazynów
             this.labelChooseFunction.Padding = new Padding((int)(this.Size.Width * 0.35), 0, (int)(this.Size.Width * 0.35), 0);
         }
 
+        private void buttonEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeeManagement.EmployeeManagementForm employeeManagementForm = new EmployeeManagement.EmployeeManagementForm();
+            employeeManagementForm.ShowDialog();
+        }
     }
 }
