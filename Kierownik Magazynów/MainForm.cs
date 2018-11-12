@@ -21,7 +21,7 @@ namespace Kierownik_Magazynów
 
         private void LoadForm()
         {
-            this.labelChooseFunction.Padding = new Padding((int)(this.Size.Width / 2), 0, (int)(this.Size.Width / 2), 0);
+            this.labelChooseFunction.Padding = new Padding((int)(this.Size.Width * 0.35), 0, (int)(this.Size.Width * 0.35), 0);
         }
 
     }

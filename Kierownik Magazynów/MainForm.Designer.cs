@@ -40,6 +40,7 @@
             this.labelChooseFunction.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelChooseFunction.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelChooseFunction.Location = new System.Drawing.Point(0, 0);
+            this.labelChooseFunction.Margin = new System.Windows.Forms.Padding(0);
             this.labelChooseFunction.Name = "labelChooseFunction";
             this.labelChooseFunction.Size = new System.Drawing.Size(200, 31);
             this.labelChooseFunction.TabIndex = 0;
@@ -80,6 +81,7 @@
             this.Controls.Add(this.buttonEmployees);
             this.Controls.Add(this.buttonAgencies);
             this.Controls.Add(this.labelChooseFunction);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(824, 349);
             this.MinimumSize = new System.Drawing.Size(824, 349);

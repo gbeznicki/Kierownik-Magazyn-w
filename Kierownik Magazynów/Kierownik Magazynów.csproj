@@ -56,8 +56,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgenciesManagement\AgencyManagementDataService.cs" />
+    <Compile Include="AgenciesManagement\AgencyManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgenciesManagement\AgencyManagementForm.Designer.cs">
+      <DependentUpon>AgencyManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgenciesManagement\AgencyManagementRepository.cs" />
     <Compile Include="EmployeeManagement\EmployeeManagementDataService.cs" />
+    <Compile Include="EmployeeManagement\EmployeeManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagement\EmployeeManagementForm.Designer.cs">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeManagement\EmployeeManagementRepository.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
