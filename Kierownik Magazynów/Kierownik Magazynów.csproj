@@ -63,6 +63,54 @@
       <DependentUpon>AgencyManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AgenciesManagement\AgencyManagementRepository.cs" />
+    <Compile Include="Database\Agency.cs">
+      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AgencyManagementModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgencyManagementModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AgencyManagementModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AgencyManagementModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Employee.cs">
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeDetails.cs">
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeManagementEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagementEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeManagementEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeManagementEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeNote.cs">
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Range.cs">
+      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Warehouse.cs">
+      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeManagement\EmployeeManagementDataService.cs" />
     <Compile Include="EmployeeManagement\EmployeeManagementForm.cs">
       <SubType>Form</SubType>
@@ -79,6 +127,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgenciesManagement\AgencyManagementForm.resx">
+      <DependentUpon>AgencyManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagement\EmployeeManagementForm.resx">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +145,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Database\EmployeeManagementEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeManagementEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Database\AgencyManagementModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AgencyManagementModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\AgencyManagementModel.edmx.diagram">
+      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+    </None>
+    <None Include="Database\EmployeeManagementEntities.edmx.diagram">
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,6 +175,28 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\AgencyManagementModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+      <LastGenOutput>AgencyManagementModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\AgencyManagementModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+      <LastGenOutput>AgencyManagementModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\EmployeeManagementEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+      <LastGenOutput>EmployeeManagementEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\EmployeeManagementEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+      <LastGenOutput>EmployeeManagementEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
