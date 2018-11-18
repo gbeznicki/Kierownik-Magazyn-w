@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EmployeeManagement;
 
 namespace Kierownik_Magazynów.EmployeeManagement
 {
     public partial class EmployeeManagementForm : Form
     {
+        private EmployeeManagementDataService EmployeeManagementDataService;
         public EmployeeManagementForm()
         {
             InitializeComponent();
