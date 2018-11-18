@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AgenciesManagement;
-
+// komentarz
 namespace Kierownik_Magazynów.AgenciesManagement
 {
     public partial class AgencyManagementForm : Form
