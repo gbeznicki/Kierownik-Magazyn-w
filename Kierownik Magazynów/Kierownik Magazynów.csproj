@@ -76,10 +76,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgencyManagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\AgencyManagementModel.Designer.cs">
+    <Compile Include="Database\AgencyManagementEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+      <DependentUpon>AgencyManagementEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Database\Employee.cs">
       <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
@@ -149,14 +149,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EmployeeManagementEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Database\AgencyManagementModel.edmx">
+    <EntityDeploy Include="Database\AgencyManagementEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AgencyManagementModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AgencyManagementEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
-    <None Include="Database\AgencyManagementModel.edmx.diagram">
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+    <None Include="Database\AgencyManagementEntities.edmx.diagram">
+      <DependentUpon>AgencyManagementEntities.edmx</DependentUpon>
     </None>
     <None Include="Database\EmployeeManagementEntities.edmx.diagram">
       <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
@@ -181,12 +180,12 @@
   <ItemGroup>
     <Content Include="Database\AgencyManagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+      <DependentUpon>AgencyManagementEntities.edmx</DependentUpon>
       <LastGenOutput>AgencyManagementModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Database\AgencyManagementModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+      <DependentUpon>AgencyManagementEntities.edmx</DependentUpon>
       <LastGenOutput>AgencyManagementModel.cs</LastGenOutput>
     </Content>
     <Content Include="Database\EmployeeManagementEntities.Context.tt">
@@ -199,6 +198,12 @@
       <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
       <LastGenOutput>EmployeeManagementEntities.cs</LastGenOutput>
     </Content>
+    <Content Include="SQL\dbo.Agency.sql" />
+    <Content Include="SQL\dbo.Employee.sql" />
+    <Content Include="SQL\dbo.EmployeeDetails.sql" />
+    <Content Include="SQL\dbo.EmployeeNotes.sql" />
+    <Content Include="SQL\dbo.Range.sql" />
+    <Content Include="SQL\dbo.Warehouse.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,125 +1,125 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AgenciesManagement.AgencyManagementDataService" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="6.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAACAAAAAAAAAAAAAAAAgAQJAgEAAIEAAA=</HashCode>
       <FileName>AgenciesManagement\AgencyManagementDataService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AgenciesManagement.AgencyManagementRepository" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="9.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAQJAgEAAIEAAA=</HashCode>
       <FileName>AgenciesManagement\AgencyManagementRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.AgenciesManagement.AgencyManagementForm" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="8" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>AgenciesManagement\AgencyManagementForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.AgencyEntities" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAAAEAAAAAIACAAAAAAAAAA=</HashCode>
       <FileName>Database\AgencyManagementModel.Context.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.Agency" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACCAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\Agency.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.Range" Collapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="9.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEYAABAAAAAAQAAAAAAAAAAAAAAIQCAAAAAAAAAA=</HashCode>
       <FileName>Database\Range.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.Warehouse" Collapsed="true">
-    <Position X="4" Y="3.5" Width="1.5" />
+    <Position X="6.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\Warehouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.EmployeeEntities" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+    <Position X="6.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAACAAAAgAAAAA=</HashCode>
       <FileName>Database\EmployeeManagementEntities.Context.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.Employee" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+    <Position X="2.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAgACAAg=</HashCode>
       <FileName>Database\Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.EmployeeDetails" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+    <Position X="4.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAECCACAAAAAQAAAAACAAA=</HashCode>
       <FileName>Database\EmployeeDetails.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Database.EmployeeNote" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+    <Position X="4.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAEAgAAACCAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Database\EmployeeNote.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EmployeeManagement.EmployeeManagementDataService" Collapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAgAAAAAgAAAAAAAAAAECgAAAAQACAAAAgAIAAA=</HashCode>
       <FileName>EmployeeManagement\EmployeeManagementDataService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EmployeeManagement.EmployeeManagementRepository" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="2.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAQAAAAAAAgAAAAAAAAAAEAgAAAAQAAAAAAAAIAAA=</HashCode>
       <FileName>EmployeeManagement\EmployeeManagementRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.EmployeeManagement.EmployeeManagementForm" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>UAAgICAAACAAAAAASgCAAAACAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>EmployeeManagement\EmployeeManagementForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.MainForm" Collapsed="true">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAACAAAACAAACAAAACAgAAAAAAAAAAAAIAgAA=</HashCode>
       <FileName>MainForm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Program" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Properties.Resources" Collapsed="true">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Position X="2.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Kierownik_Magazynów.Properties.Settings" Collapsed="true">
-    <Position X="2.25" Y="3.5" Width="1.5" />
+    <Position X="4.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>

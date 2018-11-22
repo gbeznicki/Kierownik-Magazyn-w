@@ -1,50 +1,103 @@
-using EmployeeManagement;
 using System.Data;
+using System.Windows.Forms;
 
 namespace EmployeeManagement
 {
-	public class EmployeeManagementDataService
-	{
-		public DataTable EmployeeNotes;
+    public class EmployeeManagementDataService
+    {
+        public DataTable EmployeeNotes { get; set; }
 
-		public DataTable Employees;
+        public DataTable Employees { get; set; }
 
-		public DataTable EmployeeDetails;
+        public DataTable EmployeeDetails { get; set; }
 
-		private EmployeeManagementRepository employeeRepository;
+        private EmployeeManagementRepository employeeRepository;
 
-		/// This method fills Employees DataTable
-		public string GetEmployees()
-		{
-			return null;
-		}
+        /// This method fills Employees DataTable
+        public void GetEmployees()
+        {
+            try
+            {
+                Employees = employeeRepository.GetEmployees();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Nieudana próba pobrania listy pracowników", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-		public string GetEmployeeNotes(int employeeId)
-		{
-			return null;
-		}
+        }
 
-		public string GetEmployeeDetails(int employeeId)
-		{
-			return null;
-		}
+        public void GetEmployeeNotes(int employeeId)
+        {
+            try
+            {
+                EmployeeNotes = employeeRepository.GetEmployeeNotes();
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Nieudana próba pobrania listy notatek", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-		public string AddNote(string noteText, int employeeId)
-		{
-			return null;
-		}
+        public void GetEmployeeDetails(int employeeId)
+        {
+            try
+            {
+                EmployeeDetails = employeeRepository.GetEmployeeDetails();
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Nieudana próba pobrania listy szczegó³ów pracownika", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-		public string DeleteNote(int noteId)
-		{
-			return null;
-		}
+        public string AddNote(string noteText, int employeeId)
+        {
+            string message;
+            if (noteText.Length >= 1)
+            {
+                message = employeeRepository.AddNote(noteText, employeeId);
+            }
+            else
+            {
+                message = "Treœæ notatki nie mo¿e byæ pusta";
+            }
+            return message;
+        }
 
-		public string EditNote(string noteText, int noteId)
-		{
-			return null;
-		}
+        public string DeleteNote(int noteId)
+        {
+            string message;
+            if(noteId != 0)
+            {
+                message = employeeRepository.DeleteNote(noteId);
+            }
+            else
+            {
+                message = "Nie wybrano notatki do usuniêcia!";
+            }
+            return message;
+        }
 
-	}
+        public string EditNote(string noteText, int noteId)
+        {
+            string message;
+            if(noteText.Length >= 1 && noteId != 0)
+            {
+                message = employeeRepository.EditNote(noteText, noteId);
+            }
+            else if(!(noteText.Length >= 1))
+            {
+                message = "Treœæ notatki nie mo¿e byæ pusta.";
+            }
+            else
+            {
+                message = "Nie wybrano notatki do usuniêcia.";
+            }
+            return message;
+        }
+
+    }
 
 }
 
