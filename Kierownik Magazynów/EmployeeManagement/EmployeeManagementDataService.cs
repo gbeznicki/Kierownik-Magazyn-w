@@ -1,94 +1,88 @@
+using EmployeeManagement;
 using System.Data;
-using System.Windows.Forms;
 
 namespace EmployeeManagement
 {
-    public class EmployeeManagementDataService
-    {
-        public DataTable EmployeeNotes { get; set; }
+	public class EmployeeManagementDataService
+	{
+		public DataTable EmployeeNotes { get; set; }
 
-        public DataTable Employees { get; set; }
+		public DataTable Employees { get; set; }
 
-        public DataTable EmployeeDetails { get; set; }
+		public DataTable EmployeeDetails { get; set; }
 
-        private EmployeeManagementRepository employeeRepository;
+		private EmployeeManagementRepository employeeRepository;
 
-        /// This method fills Employees DataTable
-        public void GetEmployees()
-        {
+		/// This method fills Employees DataTable
+		public string GetEmployees()
+		{
+            string message;
             try
             {
                 Employees = employeeRepository.GetEmployees();
+                message = "Pobrano listê pracowników";
             }
-            catch (System.Exception ex)
+            catch
             {
-                MessageBox.Show("Nieudana próba pobrania listy pracowników", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                message = "Nieudana próba pobrania listy pracowników z bazy danych";
             }
+			return message;
+		}
 
-        }
-
-        public void GetEmployeeNotes(int employeeId)
-        {
+		public string GetEmployeeNotes(int employeeId)
+		{
+            string message;
             try
             {
                 EmployeeNotes = employeeRepository.GetEmployeeNotes();
+                message = "Pobrano listê notatek";
             }
-            catch (System.Exception)
+            catch
             {
-                MessageBox.Show("Nieudana próba pobrania listy notatek", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                message = "Nieudana próba pobrania listy notatek z bazy danych";
             }
+            return message;
         }
 
-        public void GetEmployeeDetails(int employeeId)
-        {
+		public string GetEmployeeDetails(int employeeId)
+		{
+            string message;
             try
             {
                 EmployeeDetails = employeeRepository.GetEmployeeDetails();
+                message = "Pobrano listê szczegó³ów pracowników";
             }
-            catch (System.Exception)
+            catch
             {
-                MessageBox.Show("Nieudana próba pobrania listy szczegó³ów pracownika", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        public string AddNote(string noteText, int employeeId)
-        {
-            string message;
-            if (noteText.Length >= 1)
-            {
-                message = employeeRepository.AddNote(noteText, employeeId);
-            }
-            else
-            {
-                message = "Treœæ notatki nie mo¿e byæ pusta";
+                message = "Nieudana próba pobrania listy szczegó³ów pracowników z bazy danych";
             }
             return message;
         }
 
-        public string DeleteNote(int noteId)
-        {
+		public string AddNote(string noteText, int employeeId)
+		{
             string message;
-            if(noteId != 0)
+			if(noteText.Length >= 10 && employeeId != 0)
             {
-                message = employeeRepository.DeleteNote(noteId);
+                return employeeRepository.AddNote(noteText, employeeId);
+            }
+            else if(noteText.Length < 10)
+            {
+                message = "Minimalna d³ugoœæ notatki wynosi 10 znaków.";
             }
             else
             {
-                message = "Nie wybrano notatki do usuniêcia!";
+                message = "Nie wybrano pracownika.";
             }
             return message;
-        }
+		}
 
-        public string EditNote(string noteText, int noteId)
-        {
+		public string DeleteNote(int noteId)
+		{
             string message;
-            if(noteText.Length >= 1 && noteId != 0)
+            if (noteId != 0)
             {
-                message = employeeRepository.EditNote(noteText, noteId);
-            }
-            else if(!(noteText.Length >= 1))
-            {
-                message = "Treœæ notatki nie mo¿e byæ pusta.";
+                return employeeRepository.DeleteNote(noteId);
             }
             else
             {
@@ -97,7 +91,25 @@ namespace EmployeeManagement
             return message;
         }
 
-    }
+		public string EditNote(string noteText, int noteId)
+		{
+            string message;
+            if (noteText.Length >= 10 && noteId != 0)
+            {
+                return employeeRepository.EditNote(noteText, noteId);
+            }
+            else if (noteText.Length < 10)
+            {
+                message = "Minimalna d³ugoœæ notatki wynosi 10 znaków.";
+            }
+            else
+            {
+                message = "Nie wybrano notatki do edycji.";
+            }
+            return message;
+        }
+
+	}
 
 }
 
