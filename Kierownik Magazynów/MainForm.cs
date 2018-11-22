@@ -27,7 +27,7 @@ namespace Kierownik_Magazynów
         private void buttonEmployees_Click(object sender, EventArgs e)
         {
             EmployeeManagement.EmployeeManagementForm employeeManagementForm = new EmployeeManagement.EmployeeManagementForm();
-            employeeManagementForm.ShowDialog();
+            employeeManagementForm.Show();
         }
     }
 }
