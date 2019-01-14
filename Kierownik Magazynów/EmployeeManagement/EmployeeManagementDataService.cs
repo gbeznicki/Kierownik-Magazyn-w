@@ -1,4 +1,5 @@
 using EmployeeManagement;
+using Kierownik_Magazynów.Database;
 using System.Data;
 using System.Data.Entity;
 
@@ -6,13 +7,19 @@ namespace EmployeeManagement
 {
 	public class EmployeeManagementDataService
 	{
-		public DbSet<Kierownik_Magazynów.Database.EmployeeNote> EmployeeNotes { get; set; }
 
-		public DbSet<Kierownik_Magazynów.Database.Employee> Employees { get; set; }
+		public DataTable EmployeeNotes { get; set; }
 
-		public DbSet<Kierownik_Magazynów.Database.EmployeeDetails> EmployeeDetails { get; set; }
+		public DataTable Employees { get; set; }
+
+		public DataTable EmployeeDetails { get; set; }
 
 		private EmployeeManagementRepository employeeRepository;
+
+        public EmployeeManagementDataService()
+        {
+            this.employeeRepository = new EmployeeManagementRepository();
+        }
 
 		/// This method fills Employees DataTable
 		public string GetEmployees()
@@ -20,7 +27,7 @@ namespace EmployeeManagement
             string message;
             try
             {
-                Employees = employeeRepository.GetEmployees();
+                Employees = employeeRepository.GetEmployees().ToListAsync().Result.ToDataTable();
                 message = "Pobrano listê pracowników";
             }
             catch
@@ -35,7 +42,7 @@ namespace EmployeeManagement
             string message;
             try
             {
-                EmployeeNotes = employeeRepository.GetEmployeeNotes();
+                EmployeeNotes = employeeRepository.GetEmployeeNotes().ToListAsync().Result.ToDataTable();
                 message = "Pobrano listê notatek";
             }
             catch
@@ -50,7 +57,7 @@ namespace EmployeeManagement
             string message;
             try
             {
-                EmployeeDetails = employeeRepository.GetEmployeeDetails();
+                EmployeeDetails = employeeRepository.GetEmployeeDetails().ToListAsync().Result.ToDataTable();
                 message = "Pobrano listê szczegó³ów pracowników";
             }
             catch

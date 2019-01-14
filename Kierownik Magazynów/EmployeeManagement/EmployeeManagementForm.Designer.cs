@@ -93,7 +93,7 @@
             // 
             this.splitContainerDetailsNotes.Panel2.Controls.Add(this.flowLayoutPanelButtons);
             this.splitContainerDetailsNotes.Panel2.Controls.Add(this.listViewNotes);
-            this.splitContainerDetailsNotes.Size = new System.Drawing.Size(828, 652);
+            this.splitContainerDetailsNotes.Size = new System.Drawing.Size(832, 652);
             this.splitContainerDetailsNotes.SplitterDistance = 265;
             this.splitContainerDetailsNotes.TabIndex = 0;
             // 
@@ -104,7 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewDetails.Location = new System.Drawing.Point(0, 0);
             this.listViewDetails.Name = "listViewDetails";
-            this.listViewDetails.Size = new System.Drawing.Size(828, 265);
+            this.listViewDetails.Size = new System.Drawing.Size(832, 265);
             this.listViewDetails.TabIndex = 0;
             this.listViewDetails.UseCompatibleStateImageBehavior = false;
             // 
@@ -116,7 +116,7 @@
             this.flowLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanelButtons.Location = new System.Drawing.Point(0, 316);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(828, 67);
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(832, 67);
             this.flowLayoutPanelButtons.TabIndex = 4;
             // 
             // buttonAddNote
@@ -153,7 +153,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewNotes.Location = new System.Drawing.Point(0, 0);
             this.listViewNotes.Name = "listViewNotes";
-            this.listViewNotes.Size = new System.Drawing.Size(828, 313);
+            this.listViewNotes.Size = new System.Drawing.Size(832, 313);
             this.listViewNotes.TabIndex = 0;
             this.listViewNotes.UseCompatibleStateImageBehavior = false;
             // 

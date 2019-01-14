@@ -9,10 +9,10 @@ namespace EmployeeManagement
 	{
         public EmployeeManagementRepository()
         {
-            this.employeeDataBase = new EmployeeManagementEntities();
+            this.employeeDataBase = new WarehouseManagerEntities();
         }
 
-        private EmployeeManagementEntities employeeDataBase;
+        private WarehouseManagerEntities employeeDataBase;
 
         public DbSet<Employee> GetEmployees()
 		{
