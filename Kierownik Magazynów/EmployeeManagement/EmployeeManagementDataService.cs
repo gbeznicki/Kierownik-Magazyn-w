@@ -1,15 +1,16 @@
 using EmployeeManagement;
 using System.Data;
+using System.Data.Entity;
 
 namespace EmployeeManagement
 {
 	public class EmployeeManagementDataService
 	{
-		public DataTable EmployeeNotes { get; set; }
+		public DbSet<Kierownik_Magazynów.Database.EmployeeNote> EmployeeNotes { get; set; }
 
-		public DataTable Employees { get; set; }
+		public DbSet<Kierownik_Magazynów.Database.Employee> Employees { get; set; }
 
-		public DataTable EmployeeDetails { get; set; }
+		public DbSet<Kierownik_Magazynów.Database.EmployeeDetails> EmployeeDetails { get; set; }
 
 		private EmployeeManagementRepository employeeRepository;
 
