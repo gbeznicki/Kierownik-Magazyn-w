@@ -1,41 +1,70 @@
 using Kierownik_Magazynów.Database;
 using System.Data;
+using System.Data.Entity;
+using System.Linq;
 
 namespace EmployeeManagement
 {
 	public class EmployeeManagementRepository
 	{
-        private EmployeeEntities employeeDataBase;
+        public EmployeeManagementRepository()
+        {
+            this.employeeDataBase = new EmployeeManagementEntities();
+        }
 
-        public DataTable GetEmployees()
+        private EmployeeManagementEntities employeeDataBase;
+
+        public DbSet<Employee> GetEmployees()
 		{
-			return null;
+			return employeeDataBase.Employee;
 		}
 
-		public DataTable GetEmployeeNotes()
+		public DbSet<EmployeeNote> GetEmployeeNotes()
 		{
-			return null;
+			return employeeDataBase.EmployeeNotes;
 		}
 
-		public DataTable GetEmployeeDetails()
+		public DbSet<EmployeeDetails> GetEmployeeDetails()
 		{
-			return null;
+			return employeeDataBase.EmployeeDetails;
 		}
 
 		public string AddNote(string noteText, int employeeId)
 		{
-			return null;
+            EmployeeNote noteToAdd = new EmployeeNote();
+            noteToAdd.EmployeeId = employeeId;
+            noteToAdd.NoteText = noteText;
+            employeeDataBase.EmployeeNotes.Add(noteToAdd);
+            return "Dodano notatkê";
 		}
 
 		public string DeleteNote(int noteId)
 		{
-			return null;
-		}
+            var noteToDelete = employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId);
+            if (noteToDelete != null)
+            {
+                employeeDataBase.EmployeeNotes.Remove((EmployeeNote)noteToDelete);
+                return "Usuniêto notatkê";
+            }
+            else
+            {
+                return "Wyst¹pi³ b³¹d przy usuwaniu notatki";
+            }
+        }
 
 		public string EditNote(string noteText, int noteId)
 		{
-			return null;
-		}
+            var noteToEdit = employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId);
+            if(noteToEdit != null)
+            {
+                employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId).First().NoteText = noteText;
+                return "Pomyœlnie zedytowano notatkê";
+            }
+            else
+            {
+                return "Najpierw wybierz notatkê do edycji";
+            }
+        }
 
 	}
 
