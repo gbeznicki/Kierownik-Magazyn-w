@@ -17,7 +17,7 @@ namespace Kierownik_Magazynów.Database
         public int DetailsId { get; set; }
         public int EmployeeId { get; set; }
         public System.DateTime HireDate { get; set; }
-        public System.DateTime DismissDate { get; set; }
+        public Nullable<System.DateTime> DismissDate { get; set; }
         public Nullable<int> SupervisorId { get; set; }
         public string DefaultActivity { get; set; }
     

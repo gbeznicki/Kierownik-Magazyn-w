@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employee">
           <Key>
             <PropertyRef Name="EmployeeId" />
@@ -20,9 +20,9 @@
           <Property Name="DetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmployeeId" Type="int" Nullable="false" />
           <Property Name="HireDate" Type="date" Nullable="false" />
-          <Property Name="DismissDate" Type="date" Nullable="false" />
+          <Property Name="DismissDate" Type="date" />
           <Property Name="SupervisorId" Type="int" />
-          <Property Name="DefaultActivity" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="DefaultActivity" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="EmployeeNotes">
           <Key>
@@ -34,7 +34,7 @@
           <Property Name="CreationDate" Type="date" Nullable="false" />
           <Property Name="ModifyDate" Type="date" />
         </EntityType>
-        <Association Name="FK__EmployeeD__Emplo__5165187F">
+        <Association Name="FK__EmployeeD__Emplo__0E6E26BF">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -46,7 +46,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeN__Emplo__5535A963">
+        <Association Name="FK__EmployeeN__Emplo__08B54D69">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="EmployeeNotes" Type="Self.EmployeeNotes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -62,17 +62,16 @@
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeNotes" EntityType="Self.EmployeeNotes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__EmployeeD__Emplo__5165187F" Association="Self.FK__EmployeeD__Emplo__5165187F">
+          <AssociationSet Name="FK__EmployeeD__Emplo__0E6E26BF" Association="Self.FK__EmployeeD__Emplo__0E6E26BF">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeN__Emplo__5535A963" Association="Self.FK__EmployeeN__Emplo__5535A963">
+          <AssociationSet Name="FK__EmployeeN__Emplo__08B54D69" Association="Self.FK__EmployeeN__Emplo__08B54D69">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="EmployeeNotes" EntitySet="EmployeeNotes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmployeeManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -93,9 +92,9 @@
           <Property Name="DetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
           <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DismissDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DismissDate" Type="DateTime" Precision="0" />
           <Property Name="SupervisorId" Type="Int32" />
-          <Property Name="DefaultActivity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DefaultActivity" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__EmployeeD__Emplo__5165187F" FromRole="EmployeeDetails" ToRole="Employee" />
         </EntityType>
         <EntityType Name="EmployeeNote">
