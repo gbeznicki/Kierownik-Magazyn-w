@@ -81,6 +81,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Database\DataBaseExtensions.cs" />
     <Compile Include="Database\Employee.cs">
       <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
     </Compile>
@@ -162,6 +163,8 @@
       <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EmployeeManagement.EmployeeManagementDataService.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.Employee.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
