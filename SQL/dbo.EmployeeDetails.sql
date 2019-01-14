@@ -17,9 +17,9 @@ CREATE TABLE [dbo].[EmployeeDetails](
 	[DetailsId] [int] identity(1,1) NOT NULL primary key,
 	[EmployeeId] [int] foreign key references Employee(employeeId) NOT NULL,
 	[HireDate] [date] NOT NULL,
-	[DismissDate] [date] NOT NULL,
+	[DismissDate] [date] NULL,
 	[SupervisorId] [int] NULL,
-	[DefaultActivity] [varchar](500) NOT NULL
+	[DefaultActivity] [varchar](500) NULL
 ) ON [PRIMARY]
 GO
 
