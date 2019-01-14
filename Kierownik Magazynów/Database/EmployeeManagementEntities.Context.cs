@@ -13,9 +13,9 @@ namespace Kierownik_Magazynów.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmployeeEntities : DbContext
+    public partial class EmployeeManagementEntities : DbContext
     {
-        public EmployeeEntities()
+        public EmployeeManagementEntities()
             : base("name=WarehouseManagerEntities")
         {
         }
