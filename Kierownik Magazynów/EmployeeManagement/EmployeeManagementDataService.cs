@@ -1,7 +1,9 @@
 using EmployeeManagement;
 using Kierownik_Magazynów.Database;
+using System;
 using System.Data;
 using System.Data.Entity;
+using System.Linq;
 
 namespace EmployeeManagement
 {
@@ -42,7 +44,7 @@ namespace EmployeeManagement
             string message;
             try
             {
-                EmployeeNotes = employeeRepository.GetEmployeeNotes().ToListAsync().Result.ToDataTable();
+                EmployeeNotes = employeeRepository.GetEmployeeNotes().ToListAsync().Result.Where(employee => employee.EmployeeId == employeeId).ToList().ToDataTable();
                 message = "Pobrano listê notatek";
             }
             catch
@@ -57,7 +59,7 @@ namespace EmployeeManagement
             string message;
             try
             {
-                EmployeeDetails = employeeRepository.GetEmployeeDetails().ToListAsync().Result.ToDataTable();
+                EmployeeDetails = employeeRepository.GetEmployeeDetails().ToListAsync().Result.Where(employee => employee.EmployeeId == employeeId).ToList().ToDataTable();
                 message = "Pobrano listê szczegó³ów pracowników";
             }
             catch
@@ -65,6 +67,11 @@ namespace EmployeeManagement
                 message = "Nieudana próba pobrania listy szczegó³ów pracowników z bazy danych";
             }
             return message;
+        }
+
+        public int GetEmployeeId(int rowIndex)
+        {
+                return this.Employees.Rows[rowIndex].Field<int>("EmployeeId");
         }
 
 		public string AddNote(string noteText, int employeeId)

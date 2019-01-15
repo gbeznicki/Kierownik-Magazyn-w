@@ -38,6 +38,9 @@
             this.buttonEditNote = new System.Windows.Forms.Button();
             this.buttonDeleteNote = new System.Windows.Forms.Button();
             this.listViewNotes = new System.Windows.Forms.ListView();
+            this.HireDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DismissDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DefaultActivity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -52,14 +55,17 @@
             // 
             // dataGridViewEmployees
             // 
-            this.dataGridViewEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewEmployees.AllowUserToAddRows = false;
+            this.dataGridViewEmployees.AllowUserToDeleteRows = false;
             this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewEmployees.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewEmployees.MultiSelect = false;
             this.dataGridViewEmployees.Name = "dataGridViewEmployees";
+            this.dataGridViewEmployees.ReadOnly = true;
             this.dataGridViewEmployees.Size = new System.Drawing.Size(227, 652);
             this.dataGridViewEmployees.TabIndex = 0;
+            this.dataGridViewEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellClick);
             // 
             // splitContainerMain
             // 
@@ -99,14 +105,20 @@
             // 
             // listViewDetails
             // 
-            this.listViewDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewDetails.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.HireDate,
+            this.DismissDate,
+            this.DefaultActivity});
+            this.listViewDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewDetails.FullRowSelect = true;
+            this.listViewDetails.GridLines = true;
             this.listViewDetails.Location = new System.Drawing.Point(0, 0);
+            this.listViewDetails.MultiSelect = false;
             this.listViewDetails.Name = "listViewDetails";
             this.listViewDetails.Size = new System.Drawing.Size(832, 265);
             this.listViewDetails.TabIndex = 0;
             this.listViewDetails.UseCompatibleStateImageBehavior = false;
+            this.listViewDetails.View = System.Windows.Forms.View.Details;
             // 
             // flowLayoutPanelButtons
             // 
@@ -148,14 +160,27 @@
             // 
             // listViewNotes
             // 
-            this.listViewNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewNotes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewNotes.Location = new System.Drawing.Point(0, 0);
             this.listViewNotes.Name = "listViewNotes";
-            this.listViewNotes.Size = new System.Drawing.Size(832, 313);
+            this.listViewNotes.Size = new System.Drawing.Size(832, 383);
             this.listViewNotes.TabIndex = 0;
             this.listViewNotes.UseCompatibleStateImageBehavior = false;
+            // 
+            // HireDate
+            // 
+            this.HireDate.Text = "Hire Date";
+            this.HireDate.Width = 110;
+            // 
+            // DismissDate
+            // 
+            this.DismissDate.Text = "Dismiss Date";
+            this.DismissDate.Width = 149;
+            // 
+            // DefaultActivity
+            // 
+            this.DefaultActivity.Text = "Default Activity";
+            this.DefaultActivity.Width = 153;
             // 
             // EmployeeManagementForm
             // 
@@ -166,6 +191,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EmployeeManagementForm";
             this.Text = "EmployeeManagementForm";
+            this.Load += new System.EventHandler(this.EmployeeManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
@@ -191,5 +217,8 @@
         private System.Windows.Forms.Button buttonDeleteNote;
         private System.Windows.Forms.Button buttonAddNote;
         private System.Windows.Forms.ListView listViewNotes;
+        private System.Windows.Forms.ColumnHeader HireDate;
+        private System.Windows.Forms.ColumnHeader DismissDate;
+        private System.Windows.Forms.ColumnHeader DefaultActivity;
     }
 }
