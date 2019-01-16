@@ -44,8 +44,6 @@ namespace Kierownik_Magazynów.EmployeeManagement
             if (!String.IsNullOrEmpty(result))
             {
                 XtraMessageBox.Show(employeeManagementDataService.AddNote(result.ToString(), gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId")));
-                //gridControlNotes.Da
-                //gridControlNotes.Refresh();
             }
         }
 
