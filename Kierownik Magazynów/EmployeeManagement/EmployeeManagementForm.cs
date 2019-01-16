@@ -39,8 +39,7 @@ namespace Kierownik_Magazynów.EmployeeManagement
             var result = XtraInputBox.Show("Dodaj notatkę", "Treść notatki:", "Tutaj wpisz treść...");
             if (!String.IsNullOrEmpty(result))
             {
-                XtraMessageBox.Show("BRAWO!");
-                //employeeManagementDataService.AddNote(result.ToString(), gridViewEmployee.GetFocusedDataRow())
+                XtraMessageBox.Show(employeeManagementDataService.AddNote(result.ToString(), gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId")));
             }
         }
 
