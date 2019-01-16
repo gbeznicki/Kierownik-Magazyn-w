@@ -59,6 +59,7 @@ namespace EmployeeManagement
             if(noteToEdit != null)
             {
                 employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId).First().NoteText = noteText;
+                employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId).First().ModifyDate = System.DateTime.Now;
                 return "Pomyœlnie zedytowano notatkê";
             }
             else
