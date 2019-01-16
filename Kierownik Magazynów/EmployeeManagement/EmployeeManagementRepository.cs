@@ -35,6 +35,7 @@ namespace EmployeeManagement
             noteToAdd.EmployeeId = employeeId;
             noteToAdd.NoteText = noteText;
             employeeDataBase.EmployeeNotes.Add(noteToAdd);
+            employeeDataBase.SaveChanges();
             return "Dodano notatkê";
 		}
 
