@@ -29,7 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan1 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManagementForm));
+            this.tileViewColumnNoteText = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumnCreationDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumnModifyDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.gridControlEmployee = new DevExpress.XtraGrid.GridControl();
             this.employeeManagementDataServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,9 +66,6 @@
             this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             this.gridControlNotes = new DevExpress.XtraGrid.GridControl();
             this.tileViewNotes = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.tileViewColumnNoteText = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumnCreationDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
-            this.tileViewColumnModifyDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonAddNote = new System.Windows.Forms.Button();
@@ -81,6 +93,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.tileViewNotes)).BeginInit();
             this.flowLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tileViewColumnNoteText
+            // 
+            this.tileViewColumnNoteText.Caption = "Treść Notatki";
+            this.tileViewColumnNoteText.FieldName = "NoteText";
+            this.tileViewColumnNoteText.Name = "tileViewColumnNoteText";
+            this.tileViewColumnNoteText.Visible = true;
+            this.tileViewColumnNoteText.VisibleIndex = 0;
+            // 
+            // tileViewColumnCreationDate
+            // 
+            this.tileViewColumnCreationDate.Caption = "Data Utworzenia";
+            this.tileViewColumnCreationDate.FieldName = "CreationDate";
+            this.tileViewColumnCreationDate.Name = "tileViewColumnCreationDate";
+            this.tileViewColumnCreationDate.Visible = true;
+            this.tileViewColumnCreationDate.VisibleIndex = 1;
+            // 
+            // tileViewColumnModifyDate
+            // 
+            this.tileViewColumnModifyDate.Caption = "Data modyfikacji";
+            this.tileViewColumnModifyDate.FieldName = "ModifyDate";
+            this.tileViewColumnModifyDate.Name = "tileViewColumnModifyDate";
+            this.tileViewColumnModifyDate.Visible = true;
+            this.tileViewColumnModifyDate.VisibleIndex = 2;
             // 
             // splitContainerMain
             // 
@@ -282,30 +318,48 @@
             this.tileViewColumnModifyDate});
             this.tileViewNotes.GridControl = this.gridControlNotes;
             this.tileViewNotes.Name = "tileViewNotes";
-            // 
-            // tileViewColumnNoteText
-            // 
-            this.tileViewColumnNoteText.Caption = "Treść Notatki";
-            this.tileViewColumnNoteText.FieldName = "NoteText";
-            this.tileViewColumnNoteText.Name = "tileViewColumnNoteText";
-            this.tileViewColumnNoteText.Visible = true;
-            this.tileViewColumnNoteText.VisibleIndex = 0;
-            // 
-            // tileViewColumnCreationDate
-            // 
-            this.tileViewColumnCreationDate.Caption = "Data Utworzenia";
-            this.tileViewColumnCreationDate.FieldName = "CreationDate";
-            this.tileViewColumnCreationDate.Name = "tileViewColumnCreationDate";
-            this.tileViewColumnCreationDate.Visible = true;
-            this.tileViewColumnCreationDate.VisibleIndex = 1;
-            // 
-            // tileViewColumnModifyDate
-            // 
-            this.tileViewColumnModifyDate.Caption = "Data modyfikacji";
-            this.tileViewColumnModifyDate.FieldName = "ModifyDate";
-            this.tileViewColumnModifyDate.Name = "tileViewColumnModifyDate";
-            this.tileViewColumnModifyDate.Visible = true;
-            this.tileViewColumnModifyDate.VisibleIndex = 2;
+            this.tileViewNotes.TileColumns.Add(tableColumnDefinition1);
+            this.tileViewNotes.TileColumns.Add(tableColumnDefinition2);
+            this.tileViewNotes.TileColumns.Add(tableColumnDefinition3);
+            this.tileViewNotes.TileRows.Add(tableRowDefinition1);
+            this.tileViewNotes.TileRows.Add(tableRowDefinition2);
+            this.tileViewNotes.TileRows.Add(tableRowDefinition3);
+            tableSpan1.ColumnSpan = 3;
+            this.tileViewNotes.TileSpans.Add(tableSpan1);
+            tileViewItemElement1.Column = this.tileViewColumnNoteText;
+            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement1.Text = "tileViewColumnNoteText";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.Column = this.tileViewColumnCreationDate;
+            tileViewItemElement2.ColumnIndex = 1;
+            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement2.RowIndex = 1;
+            tileViewItemElement2.Text = "tileViewColumnCreationDate";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement3.Column = this.tileViewColumnModifyDate;
+            tileViewItemElement3.ColumnIndex = 1;
+            tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement3.RowIndex = 2;
+            tileViewItemElement3.Text = "tileViewColumnModifyDate";
+            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement4.RowIndex = 1;
+            tileViewItemElement4.Text = "Utworzono:";
+            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement5.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement5.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement5.RowIndex = 2;
+            tileViewItemElement5.Text = "Edytowano";
+            tileViewItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileViewNotes.TileTemplate.Add(tileViewItemElement1);
+            this.tileViewNotes.TileTemplate.Add(tileViewItemElement2);
+            this.tileViewNotes.TileTemplate.Add(tileViewItemElement3);
+            this.tileViewNotes.TileTemplate.Add(tileViewItemElement4);
+            this.tileViewNotes.TileTemplate.Add(tileViewItemElement5);
             // 
             // flowLayoutPanel1
             // 

@@ -30,8 +30,12 @@ namespace Kierownik_Magazynów.EmployeeManagement
         private void gridViewEmployee_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int employeeId = gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId");
+            //loading employee details
             employeeManagementDataService.GetEmployeeDetails(employeeId);
             gridControlDetails.DataSource = employeeManagementDataService.EmployeeDetails;
+            //loading employee notes
+            employeeManagementDataService.GetEmployeeNotes(employeeId);
+            gridControlNotes.DataSource = employeeManagementDataService.EmployeeNotes;
         }
 
         private void buttonAddNote_Click(object sender, EventArgs e)
@@ -40,6 +44,8 @@ namespace Kierownik_Magazynów.EmployeeManagement
             if (!String.IsNullOrEmpty(result))
             {
                 XtraMessageBox.Show(employeeManagementDataService.AddNote(result.ToString(), gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId")));
+                //gridControlNotes.Da
+                //gridControlNotes.Refresh();
             }
         }
 

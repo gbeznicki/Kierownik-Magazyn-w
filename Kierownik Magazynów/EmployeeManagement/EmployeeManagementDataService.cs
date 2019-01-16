@@ -77,13 +77,13 @@ namespace EmployeeManagement
 		public string AddNote(string noteText, int employeeId)
 		{
             string message;
-			if(noteText.Length >= 10 && employeeId != 0)
+			if(noteText.Length >= 1 && employeeId != 0)
             {
                 return employeeRepository.AddNote(noteText, employeeId);
             }
-            else if(noteText.Length < 10)
+            else if(noteText.Length < 1)
             {
-                message = "Minimalna d³ugoœæ notatki wynosi 10 znaków.";
+                message = "Minimalna d³ugoœæ notatki wynosi 1 znak.";
             }
             else
             {
