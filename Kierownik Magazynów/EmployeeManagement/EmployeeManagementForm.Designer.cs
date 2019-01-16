@@ -34,19 +34,12 @@
             this.gridControlEmployee = new DevExpress.XtraGrid.GridControl();
             this.employeeManagementDataServiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewEmployee = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colEmployeeId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFirstName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerDetailsNotes = new System.Windows.Forms.SplitContainer();
             this.gridControlDetails = new DevExpress.XtraGrid.GridControl();
             this.layoutViewDetails = new DevExpress.XtraGrid.Views.Layout.LayoutView();
-            this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
-            this.gridControlNotes = new DevExpress.XtraGrid.GridControl();
-            this.tileViewNotes = new DevExpress.XtraGrid.Views.Tile.TileView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAddNote = new System.Windows.Forms.Button();
-            this.buttonEditNote = new System.Windows.Forms.Button();
-            this.buttonDeleteNote = new System.Windows.Forms.Button();
             this.layoutViewColumnHireDate = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
             this.layoutViewField_layoutViewColumn1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
             this.layoutViewColumnDismissDate = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
@@ -55,6 +48,17 @@
             this.layoutViewField_layoutViewColumn1_1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
             this.layoutViewColumnDefaultActivity = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
             this.layoutViewField_layoutViewColumn1_2 = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
+            this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
+            this.gridControlNotes = new DevExpress.XtraGrid.GridControl();
+            this.tileViewNotes = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.tileViewColumnNoteText = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumnCreationDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.tileViewColumnModifyDate = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonAddNote = new System.Windows.Forms.Button();
+            this.buttonEditNote = new System.Windows.Forms.Button();
+            this.buttonDeleteNote = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
@@ -68,14 +72,14 @@
             this.splitContainerDetailsNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileViewNotes)).BeginInit();
-            this.flowLayoutPanelButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn1_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileViewNotes)).BeginInit();
+            this.flowLayoutPanelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMain
@@ -110,11 +114,21 @@
             // gridViewEmployee
             // 
             this.gridViewEmployee.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colEmployeeId,
             this.colFirstName,
             this.colLastName});
             this.gridViewEmployee.GridControl = this.gridControlEmployee;
             this.gridViewEmployee.Name = "gridViewEmployee";
             this.gridViewEmployee.OptionsBehavior.Editable = false;
+            this.gridViewEmployee.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewEmployee_FocusedRowChanged);
+            // 
+            // colEmployeeId
+            // 
+            this.colEmployeeId.Caption = "Id Pracownika";
+            this.colEmployeeId.FieldName = "EmployeeId";
+            this.colEmployeeId.Name = "colEmployeeId";
+            this.colEmployeeId.Visible = true;
+            this.colEmployeeId.VisibleIndex = 0;
             // 
             // colFirstName
             // 
@@ -122,7 +136,7 @@
             this.colFirstName.FieldName = "FirstName";
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.Visible = true;
-            this.colFirstName.VisibleIndex = 0;
+            this.colFirstName.VisibleIndex = 1;
             // 
             // colLastName
             // 
@@ -130,7 +144,7 @@
             this.colLastName.FieldName = "LastName";
             this.colLastName.Name = "colLastName";
             this.colLastName.Visible = true;
-            this.colLastName.VisibleIndex = 1;
+            this.colLastName.VisibleIndex = 2;
             // 
             // splitContainerDetailsNotes
             // 
@@ -173,77 +187,6 @@
             this.layoutViewDetails.GridControl = this.gridControlDetails;
             this.layoutViewDetails.Name = "layoutViewDetails";
             this.layoutViewDetails.TemplateCard = this.layoutViewCard1;
-            // 
-            // layoutViewCard1
-            // 
-            this.layoutViewCard1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-            this.layoutViewCard1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutViewField_layoutViewColumn1,
-            this.layoutViewField_layoutViewColumn2,
-            this.layoutViewField_layoutViewColumn1_1,
-            this.layoutViewField_layoutViewColumn1_2});
-            this.layoutViewCard1.Name = "layoutViewTemplateCard";
-            // 
-            // gridControlNotes
-            // 
-            this.gridControlNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControlNotes.Location = new System.Drawing.Point(0, 0);
-            this.gridControlNotes.MainView = this.tileViewNotes;
-            this.gridControlNotes.Name = "gridControlNotes";
-            this.gridControlNotes.Size = new System.Drawing.Size(832, 316);
-            this.gridControlNotes.TabIndex = 6;
-            this.gridControlNotes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tileViewNotes});
-            // 
-            // tileViewNotes
-            // 
-            this.tileViewNotes.GridControl = this.gridControlNotes;
-            this.tileViewNotes.Name = "tileViewNotes";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(211, 134);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(8, 8);
-            this.flowLayoutPanel1.TabIndex = 5;
-            // 
-            // flowLayoutPanelButtons
-            // 
-            this.flowLayoutPanelButtons.Controls.Add(this.buttonAddNote);
-            this.flowLayoutPanelButtons.Controls.Add(this.buttonEditNote);
-            this.flowLayoutPanelButtons.Controls.Add(this.buttonDeleteNote);
-            this.flowLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(0, 316);
-            this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(832, 67);
-            this.flowLayoutPanelButtons.TabIndex = 4;
-            // 
-            // buttonAddNote
-            // 
-            this.buttonAddNote.Location = new System.Drawing.Point(3, 3);
-            this.buttonAddNote.Name = "buttonAddNote";
-            this.buttonAddNote.Size = new System.Drawing.Size(270, 53);
-            this.buttonAddNote.TabIndex = 1;
-            this.buttonAddNote.Text = "Dodaj notatkę";
-            this.buttonAddNote.UseVisualStyleBackColor = true;
-            // 
-            // buttonEditNote
-            // 
-            this.buttonEditNote.Location = new System.Drawing.Point(279, 3);
-            this.buttonEditNote.Name = "buttonEditNote";
-            this.buttonEditNote.Size = new System.Drawing.Size(270, 53);
-            this.buttonEditNote.TabIndex = 3;
-            this.buttonEditNote.Text = "Edytuj notatkę";
-            this.buttonEditNote.UseVisualStyleBackColor = true;
-            // 
-            // buttonDeleteNote
-            // 
-            this.buttonDeleteNote.Location = new System.Drawing.Point(555, 3);
-            this.buttonDeleteNote.Name = "buttonDeleteNote";
-            this.buttonDeleteNote.Size = new System.Drawing.Size(270, 53);
-            this.buttonDeleteNote.TabIndex = 2;
-            this.buttonDeleteNote.Text = "Usuń notatkę";
-            this.buttonDeleteNote.UseVisualStyleBackColor = true;
             // 
             // layoutViewColumnHireDate
             // 
@@ -310,6 +253,108 @@
             this.layoutViewField_layoutViewColumn1_2.Size = new System.Drawing.Size(120, 20);
             this.layoutViewField_layoutViewColumn1_2.TextSize = new System.Drawing.Size(103, 13);
             // 
+            // layoutViewCard1
+            // 
+            this.layoutViewCard1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+            this.layoutViewCard1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutViewField_layoutViewColumn1,
+            this.layoutViewField_layoutViewColumn2,
+            this.layoutViewField_layoutViewColumn1_1,
+            this.layoutViewField_layoutViewColumn1_2});
+            this.layoutViewCard1.Name = "layoutViewTemplateCard";
+            // 
+            // gridControlNotes
+            // 
+            this.gridControlNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlNotes.Location = new System.Drawing.Point(0, 0);
+            this.gridControlNotes.MainView = this.tileViewNotes;
+            this.gridControlNotes.Name = "gridControlNotes";
+            this.gridControlNotes.Size = new System.Drawing.Size(832, 316);
+            this.gridControlNotes.TabIndex = 6;
+            this.gridControlNotes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tileViewNotes});
+            // 
+            // tileViewNotes
+            // 
+            this.tileViewNotes.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tileViewColumnNoteText,
+            this.tileViewColumnCreationDate,
+            this.tileViewColumnModifyDate});
+            this.tileViewNotes.GridControl = this.gridControlNotes;
+            this.tileViewNotes.Name = "tileViewNotes";
+            // 
+            // tileViewColumnNoteText
+            // 
+            this.tileViewColumnNoteText.Caption = "Treść Notatki";
+            this.tileViewColumnNoteText.FieldName = "NoteText";
+            this.tileViewColumnNoteText.Name = "tileViewColumnNoteText";
+            this.tileViewColumnNoteText.Visible = true;
+            this.tileViewColumnNoteText.VisibleIndex = 0;
+            // 
+            // tileViewColumnCreationDate
+            // 
+            this.tileViewColumnCreationDate.Caption = "Data Utworzenia";
+            this.tileViewColumnCreationDate.FieldName = "CreationDate";
+            this.tileViewColumnCreationDate.Name = "tileViewColumnCreationDate";
+            this.tileViewColumnCreationDate.Visible = true;
+            this.tileViewColumnCreationDate.VisibleIndex = 1;
+            // 
+            // tileViewColumnModifyDate
+            // 
+            this.tileViewColumnModifyDate.Caption = "Data modyfikacji";
+            this.tileViewColumnModifyDate.FieldName = "ModifyDate";
+            this.tileViewColumnModifyDate.Name = "tileViewColumnModifyDate";
+            this.tileViewColumnModifyDate.Visible = true;
+            this.tileViewColumnModifyDate.VisibleIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(211, 134);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(8, 8);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // flowLayoutPanelButtons
+            // 
+            this.flowLayoutPanelButtons.Controls.Add(this.buttonAddNote);
+            this.flowLayoutPanelButtons.Controls.Add(this.buttonEditNote);
+            this.flowLayoutPanelButtons.Controls.Add(this.buttonDeleteNote);
+            this.flowLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(0, 316);
+            this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(832, 67);
+            this.flowLayoutPanelButtons.TabIndex = 4;
+            // 
+            // buttonAddNote
+            // 
+            this.buttonAddNote.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddNote.Name = "buttonAddNote";
+            this.buttonAddNote.Size = new System.Drawing.Size(270, 53);
+            this.buttonAddNote.TabIndex = 1;
+            this.buttonAddNote.Text = "Dodaj notatkę";
+            this.buttonAddNote.UseVisualStyleBackColor = true;
+            this.buttonAddNote.Click += new System.EventHandler(this.buttonAddNote_Click);
+            // 
+            // buttonEditNote
+            // 
+            this.buttonEditNote.Location = new System.Drawing.Point(279, 3);
+            this.buttonEditNote.Name = "buttonEditNote";
+            this.buttonEditNote.Size = new System.Drawing.Size(270, 53);
+            this.buttonEditNote.TabIndex = 3;
+            this.buttonEditNote.Text = "Edytuj notatkę";
+            this.buttonEditNote.UseVisualStyleBackColor = true;
+            this.buttonEditNote.Click += new System.EventHandler(this.buttonEditNote_Click);
+            // 
+            // buttonDeleteNote
+            // 
+            this.buttonDeleteNote.Location = new System.Drawing.Point(555, 3);
+            this.buttonDeleteNote.Name = "buttonDeleteNote";
+            this.buttonDeleteNote.Size = new System.Drawing.Size(270, 53);
+            this.buttonDeleteNote.TabIndex = 2;
+            this.buttonDeleteNote.Text = "Usuń notatkę";
+            this.buttonDeleteNote.UseVisualStyleBackColor = true;
+            this.buttonDeleteNote.Click += new System.EventHandler(this.buttonDeleteNote_Click);
+            // 
             // EmployeeManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,14 +378,14 @@
             this.splitContainerDetailsNotes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileViewNotes)).EndInit();
-            this.flowLayoutPanelButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn1_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_layoutViewColumn1_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNotes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tileViewNotes)).EndInit();
+            this.flowLayoutPanelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -371,5 +416,9 @@
         private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_layoutViewColumn1_1;
         private DevExpress.XtraGrid.Columns.LayoutViewColumn layoutViewColumnDefaultActivity;
         private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_layoutViewColumn1_2;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumnNoteText;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumnCreationDate;
+        private DevExpress.XtraGrid.Columns.TileViewColumn tileViewColumnModifyDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmployeeId;
     }
 }

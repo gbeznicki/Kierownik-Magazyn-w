@@ -69,10 +69,10 @@ namespace EmployeeManagement
             return message;
         }
 
-        public int GetEmployeeId(int rowIndex)
-        {
-                return this.Employees.Rows[rowIndex].Field<int>("EmployeeId");
-        }
+        //public int GetEmployeeId(int rowIndex)
+        //{
+        //        return this.Employees.Rows[rowIndex].Field<int>("EmployeeId");
+        //}
 
 		public string AddNote(string noteText, int employeeId)
 		{
