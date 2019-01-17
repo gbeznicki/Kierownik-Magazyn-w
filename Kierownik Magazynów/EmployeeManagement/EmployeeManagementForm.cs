@@ -49,12 +49,27 @@ namespace Kierownik_Magazynów.EmployeeManagement
 
         private void buttonEditNote_Click(object sender, EventArgs e)
         {
-
+            var result = XtraInputBox.Show("Edytuj notatkę", "Treść notatki:", "Tutaj wpisz treść...");
+            if (!String.IsNullOrEmpty(result))
+            {
+                XtraMessageBox.Show(employeeManagementDataService.EditNote(result.ToString(), tileViewNotes.GetFocusedDataRow().Field<int>("NoteId")));
+            }
         }
 
         private void buttonDeleteNote_Click(object sender, EventArgs e)
         {
-
+            int noteId = -1;
+            try
+            {
+                noteId = tileViewNotes.GetFocusedDataRow().Field<int>("NoteId");
+            } catch
+            {
+                XtraMessageBox.Show("Wybierz notatkę");
+            }
+            if (noteId != -1)
+            {
+                XtraMessageBox.Show(employeeManagementDataService.DeleteNote(noteId));
+            }
         }
     }
 }
