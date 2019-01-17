@@ -1,23 +1,43 @@
 using Kierownik_Magazynów.Database;
+using System;
 using System.Data;
+using System.Data.Entity;
 
 namespace AgenciesManagement
 {
 	public class AgencyManagementRepository
 	{
-        private AgencyEntities agencyDataBase;
+        private WarehouseManagerEntitiesAgencies agencyDataBase;
 
-        public DataTable GetRanges()
+        public AgencyManagementRepository()
+        {
+            this.agencyDataBase = new WarehouseManagerEntitiesAgencies();
+        }
+
+        public DbSet<Range> GetRanges()
 		{
-			return null;
+			return agencyDataBase.Range;
 		}
 
 		public string AddRange(int warehouseId, int agencyId, int rangeFrom, int rangeTo, int totalRange)
 		{
-			return null;
+            Range rangeToAdd = new Range();
+            rangeToAdd.WarehouseId = warehouseId;
+            rangeToAdd.AgencyId = agencyId;
+            rangeToAdd.RangeFrom = rangeFrom;
+            rangeToAdd.RangeTo = rangeTo;
+            rangeToAdd.TotalRange = totalRange;
+            agencyDataBase.Range.Add(rangeToAdd);
+            agencyDataBase.SaveChanges();
+			return "Dodano zakres";
 		}
 
-		public string EditRange(int rangeId, int rangeFrom, int rangeTo)
+        internal DbSet<Warehouse> GetWarehouses()
+        {
+            return agencyDataBase.Warehouse;
+        }
+
+        public string EditRange(int rangeId, int rangeFrom, int rangeTo)
 		{
 			return null;
 		}
@@ -27,14 +47,19 @@ namespace AgenciesManagement
 			return null;
 		}
 
-		public DataTable GetAgencies()
+		public DbSet<Agency> GetAgencies()
 		{
-			return null;
+			return agencyDataBase.Agency;
 		}
 
-		public string AddAgency()
+		public string AddAgency(string agencyName)
 		{
-			return null;
+            Agency agencyToAdd = new Agency();
+            agencyToAdd.AgencyName = agencyName;
+            agencyDataBase.Agency.Add(agencyToAdd);
+            agencyDataBase.SaveChanges();
+
+			return "Dodano agencjê";
 		}
 
 		public string EditAgency(int agencyId, string agencyName)
