@@ -36,6 +36,7 @@
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -70,23 +71,29 @@
       <DependentUpon>AgencyManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AgenciesManagement\AgencyManagementRepository.cs" />
+    <Compile Include="AgenciesManagement\RangeAdder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgenciesManagement\RangeAdder.Designer.cs">
+      <DependentUpon>RangeAdder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Database\Agency.cs">
-      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\AgencyManagementModel.Context.cs">
+    <Compile Include="Database\AgencyManagement.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgencyManagementModel.Context.tt</DependentUpon>
+      <DependentUpon>AgencyManagement.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\AgencyManagementModel.cs">
+    <Compile Include="Database\AgencyManagement.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\AgencyManagementModel.Designer.cs">
+    <Compile Include="Database\AgencyManagement.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
     </Compile>
     <Compile Include="Database\DataBaseExtensions.cs" />
     <Compile Include="Database\Employee.cs">
@@ -114,10 +121,10 @@
       <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\Range.cs">
-      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\Warehouse.cs">
-      <DependentUpon>AgencyManagementModel.tt</DependentUpon>
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployeeManagement\EmployeeManagementDataService.cs" />
     <Compile Include="EmployeeManagement\EmployeeManagementForm.cs">
@@ -127,6 +134,12 @@
       <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeManagement\EmployeeManagementRepository.cs" />
+    <Compile Include="EmployeeManagement\SplashScreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagement\SplashScreen2.Designer.cs">
+      <DependentUpon>SplashScreen2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,8 +151,14 @@
     <EmbeddedResource Include="AgenciesManagement\AgencyManagementForm.resx">
       <DependentUpon>AgencyManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgenciesManagement\RangeAdder.resx">
+      <DependentUpon>RangeAdder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeManagement\EmployeeManagementForm.resx">
       <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagement\SplashScreen2.resx">
+      <DependentUpon>SplashScreen2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -158,14 +177,14 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EmployeeManagementEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Database\AgencyManagementModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AgencyManagementModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
-    <None Include="Database\AgencyManagementModel.edmx.diagram">
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
+    <EntityDeploy Include="Database\AgencyManagement.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AgencyManagement.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\AgencyManagement.edmx.diagram">
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
     </None>
     <None Include="Database\EmployeeManagementEntities.edmx.diagram">
       <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
@@ -198,15 +217,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\AgencyManagementModel.Context.tt">
+    <Content Include="Database\AgencyManagement.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
-      <LastGenOutput>AgencyManagementModel.Context.cs</LastGenOutput>
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
+      <LastGenOutput>AgencyManagement.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Database\AgencyManagementModel.tt">
+    <Content Include="Database\AgencyManagement.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AgencyManagementModel.edmx</DependentUpon>
-      <LastGenOutput>AgencyManagementModel.cs</LastGenOutput>
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
+      <LastGenOutput>AgencyManagement.cs</LastGenOutput>
     </Content>
     <Content Include="Database\EmployeeManagementEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

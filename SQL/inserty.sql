@@ -7,8 +7,6 @@ from ( select top 100 p.FirstName imie, p.LastName nazwisko, e.HireDate data_zat
 left join Person.Person p on e.BusinessEntityID = p.BusinessEntityID
 order by e.HireDate desc) x
 
-insert into WarehouseManager.dbo.EmployeeDetails(EmployeeId, HireDate, DismissDate, SupervisorId,DefaultActivity)
-values()
 
 drop table #Tab
 select top 20 e.HireDate, 

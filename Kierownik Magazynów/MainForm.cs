@@ -28,6 +28,13 @@ namespace Kierownik_Magazynów
         {
             EmployeeManagement.EmployeeManagementForm employeeManagementForm = new EmployeeManagement.EmployeeManagementForm();
             employeeManagementForm.Show();
+
+        }
+
+        private void buttonAgencies_Click(object sender, EventArgs e)
+        {
+            AgenciesManagement.AgencyManagementForm agencyManagementForm = new AgenciesManagement.AgencyManagementForm();
+            agencyManagementForm.Show();
         }
     }
 }

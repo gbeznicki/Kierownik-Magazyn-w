@@ -13,10 +13,10 @@ namespace Kierownik_Magazynów.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AgencyEntities : DbContext
+    public partial class WarehouseManagerEntitiesAgencies : DbContext
     {
-        public AgencyEntities()
-            : base("name=Entities")
+        public WarehouseManagerEntitiesAgencies()
+            : base("name=WarehouseManagerEntitiesAgencies")
         {
         }
     
