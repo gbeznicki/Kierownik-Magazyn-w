@@ -53,10 +53,19 @@ namespace AgenciesManagement
             }
         }
 
-        //TODO
         public string DeleteRange(int rangeId)
         {
-            return null;
+            Range toDelete = agencyDataBase.Range.Find(rangeId);
+            if (toDelete != null)
+            {
+                agencyDataBase.Range.Remove(toDelete);
+                agencyDataBase.SaveChanges();
+                return "Usuniêto wybrany zakres";
+            }
+            else
+            {
+                return "B³¹d przy usuwaniu agencji";
+            }
         }
 
         public DbSet<Agency> GetAgencies()

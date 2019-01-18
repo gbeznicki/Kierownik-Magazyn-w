@@ -93,7 +93,16 @@ namespace AgenciesManagement
         //TODO
         public string DeleteRange(int rangeId)
         {
-            return null;
+            string message;
+            if (rangeId > 0)
+            {
+                message = agencyRepository.DeleteRange(rangeId);
+            }
+            else
+            {
+                message = "B³êdny numer zakresu";
+            }
+            return message;
         }
 
         public string GetAgencies()
