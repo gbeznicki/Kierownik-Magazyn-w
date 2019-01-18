@@ -37,8 +37,8 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEditAgencies = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEditWarehouse = new DevExpress.XtraEditors.LookUpEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonAddEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditAgencies.Properties)).BeginInit();
@@ -128,33 +128,36 @@
             this.lookUpEditWarehouse.Size = new System.Drawing.Size(100, 20);
             this.lookUpEditWarehouse.TabIndex = 9;
             // 
-            // simpleButton1
+            // simpleButtonAddEdit
             // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(13, 127);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 49);
-            this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Dodaj";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.simpleButtonAddEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButtonAddEdit.Location = new System.Drawing.Point(13, 127);
+            this.simpleButtonAddEdit.Name = "simpleButtonAddEdit";
+            this.simpleButtonAddEdit.Size = new System.Drawing.Size(75, 49);
+            this.simpleButtonAddEdit.TabIndex = 10;
+            this.simpleButtonAddEdit.Text = "Dodaj";
+            this.simpleButtonAddEdit.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // simpleButton2
+            // simpleButtonCancel
             // 
-            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(128, 127);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 49);
-            this.simpleButton2.TabIndex = 11;
-            this.simpleButton2.Text = "Anuluj";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.simpleButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButtonCancel.Location = new System.Drawing.Point(128, 127);
+            this.simpleButtonCancel.Name = "simpleButtonCancel";
+            this.simpleButtonCancel.Size = new System.Drawing.Size(75, 49);
+            this.simpleButtonCancel.TabIndex = 11;
+            this.simpleButtonCancel.Text = "Anuluj";
+            this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // RangeAdder
             // 
+            this.AcceptButton = this.simpleButtonAddEdit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.simpleButtonCancel;
             this.ClientSize = new System.Drawing.Size(218, 188);
-            this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.simpleButtonCancel);
+            this.Controls.Add(this.simpleButtonAddEdit);
             this.Controls.Add(this.lookUpEditWarehouse);
             this.Controls.Add(this.lookUpEditAgencies);
             this.Controls.Add(this.labelControl4);
@@ -184,7 +187,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditAgencies;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditWarehouse;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonAddEdit;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonCancel;
     }
 }

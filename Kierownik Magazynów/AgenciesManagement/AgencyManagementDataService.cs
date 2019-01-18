@@ -103,12 +103,34 @@ namespace AgenciesManagement
 
         public string EditAgency(int agencyId, string agencyName)
 		{
-			return null;
-		}
+            string message;
+            if (agencyName.Length >= 1 && agencyId > 0)
+            {
+                message = agencyRepository.EditAgency(agencyId,agencyName);
+            }
+            else if (agencyName.Length < 1)
+            {
+                message = "Minimalna d³ugoœæ nazwy agencji wynosi 1 znak.";
+            }
+            else
+            {
+                message = "B³êdny numer agencji";
+            }
+            return message;
+        }
 
-		public string DeleteAgency(int agencyId)
+        public string DeleteAgency(int agencyId)
 		{
-			return null;
+            string message;
+            if(agencyId > 0)
+            {
+                message = agencyRepository.DeleteAgency(agencyId);
+            }
+            else
+            {
+                message = "B³êdny numer agencji";
+            }
+            return message;
 		}
 
 	}

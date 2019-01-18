@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using AgenciesManagement;
+﻿using AgenciesManagement;
 using DevExpress.XtraEditors;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace Kierownik_Magazynów.AgenciesManagement
 {
@@ -18,7 +12,7 @@ namespace Kierownik_Magazynów.AgenciesManagement
         public AgencyManagementForm()
         {
             InitializeComponent();
-            this.agencyManagementDataService = new AgencyManagementDataService();
+            agencyManagementDataService = new AgencyManagementDataService();
         }
 
         private void AgencyManagementForm_Load(object sender, EventArgs e)
@@ -32,13 +26,15 @@ namespace Kierownik_Magazynów.AgenciesManagement
 
         private void LoadData()
         {
-            XtraMessageBox.Show(agencyManagementDataService.GetAgencies());
-            this.gridControlAgencies.DataSource = agencyManagementDataService.Agencies;
-            this.gridControlAgencies.Refresh();
+            //XtraMessageBox.Show(agencyManagementDataService.GetAgencies());
+            agencyManagementDataService.GetAgencies();
+            gridControlAgencies.DataSource = agencyManagementDataService.Agencies;
+            gridControlAgencies.Refresh();
 
-            XtraMessageBox.Show(agencyManagementDataService.GetRanges());
-            this.gridControlRanges.DataSource = agencyManagementDataService.Ranges;
-            this.gridControlRanges.Refresh();
+            //XtraMessageBox.Show(agencyManagementDataService.GetRanges());
+            agencyManagementDataService.GetRanges();
+            gridControlRanges.DataSource = agencyManagementDataService.Ranges;
+            gridControlRanges.Refresh();
 
             agencyManagementDataService.GetWarehouses();
 
@@ -46,23 +42,41 @@ namespace Kierownik_Magazynów.AgenciesManagement
 
         private void ReloadAgencies()
         {
-            this.gridControlAgencies.DataSource = null;
+            gridControlAgencies.DataSource = null;
             agencyManagementDataService.GetAgencies();
-            this.gridControlAgencies.DataSource = agencyManagementDataService.Agencies;
-            this.gridControlAgencies.RefreshDataSource();
+            gridControlAgencies.DataSource = agencyManagementDataService.Agencies;
+            gridControlAgencies.RefreshDataSource();
         }
 
         private void ReloadRanges()
         {
-            this.gridControlRanges.DataSource = null;
+            gridControlRanges.DataSource = null;
             agencyManagementDataService.GetRanges();
-            this.gridControlRanges.DataSource = agencyManagementDataService.Ranges;
-            this.gridControlRanges.RefreshDataSource();
+            gridControlRanges.DataSource = agencyManagementDataService.Ranges;
+            gridControlRanges.RefreshDataSource();
+        }
+
+        #region buttonsEventHandlers
+        private void btnAddRange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, ref agencyManagementDataService);
+            rangeAdder.Show();
+            ReloadRanges();
+        }
+
+        private void btnEditRange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int selectedAgency = gridViewRanges.GetFocusedDataRow().Field<int>("AgencyId");
+            int selectedWarehouse = gridViewRanges.GetFocusedDataRow().Field<int>("WarehouseId");
+
+            RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, selectedAgency, selectedWarehouse, ref agencyManagementDataService);
+            rangeAdder.Show();
+            ReloadRanges();
         }
 
         private void btnAddAgency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           string agencyName = XtraInputBox.Show("Dodawanie", "Wprowadź nazwę agencji: ", "Tutaj wpisz nazwę...");
+            string agencyName = XtraInputBox.Show("Dodawanie", "Wprowadź nazwę agencji: ", "Tutaj wpisz nazwę...");
             if (!String.IsNullOrEmpty(agencyName))
             {
                 XtraMessageBox.Show(agencyManagementDataService.AddAgency(agencyName));
@@ -70,11 +84,36 @@ namespace Kierownik_Magazynów.AgenciesManagement
             }
         }
 
-        private void btnAddRange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnEditAgency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, ref agencyManagementDataService);
-            rangeAdder.Show();
-            ReloadRanges();
+            int agencyId = tileViewAgencies.GetFocusedDataRow().Field<int>("AgencyId");
+            if (agencyId != 0)
+            {
+                string result = XtraInputBox.Show("Podaj nową nazwę agencji:", "Edytuj agencję", "Tutaj wpisz nową nazwę...");
+                if (!String.IsNullOrEmpty(result))
+                {
+                    XtraMessageBox.Show(agencyManagementDataService.EditAgency(agencyId, result));
+                    ReloadAgencies();
+                }
+
+            }
         }
+
+        private void btnDeleteAgency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int agencyId = tileViewAgencies.GetFocusedDataRow().Field<int>("AgencyId");
+            if (agencyId != 0)
+            {
+                DialogResult result = XtraMessageBox.Show("Czy na pewno chcesz usunąć wybraną agencję?", "Potwierdź", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    XtraMessageBox.Show(agencyManagementDataService.DeleteAgency(agencyId));
+                    ReloadAgencies();
+                }
+            }
+
+        }
+        #endregion
+
     }
 }

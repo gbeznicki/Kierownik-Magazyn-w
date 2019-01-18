@@ -64,13 +64,33 @@ namespace AgenciesManagement
 
 		public string EditAgency(int agencyId, string agencyName)
 		{
-			return null;
+            Agency toEdit = agencyDataBase.Agency.Find(agencyId);
+            if(toEdit != null)
+            {
+                toEdit.AgencyName = agencyName;
+                agencyDataBase.SaveChanges();
+                return "Zaktualizowano nazwê agencji";
+            }
+            else
+            {
+                return "B³¹d przy aktualizacji nazwy agencji";
+            }
 		}
 
 		public string DeleteAgency(int agencyId)
 		{
-			return null;
-		}
+            Agency toDelete = agencyDataBase.Agency.Find(agencyId);
+            if(toDelete != null)
+            {
+                agencyDataBase.Agency.Remove(toDelete);
+                agencyDataBase.SaveChanges();
+                return "Usuniêto wybran¹ agencjê";
+            }
+            else
+            {
+                return "B³¹d przy usuwaniu agencji";
+            }
+        }
 
 	}
 

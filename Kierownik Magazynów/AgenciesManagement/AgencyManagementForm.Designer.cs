@@ -111,7 +111,7 @@
             this.ribbonControlAgencyManagement.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageAgencies,
             this.ribbonPageRanges});
-            this.ribbonControlAgencyManagement.Size = new System.Drawing.Size(1083, 141);
+            this.ribbonControlAgencyManagement.Size = new System.Drawing.Size(1069, 141);
             // 
             // barButtonItem1
             // 
@@ -136,6 +136,7 @@
             this.btnEditAgency.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditAgency.ImageOptions.Image")));
             this.btnEditAgency.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEditAgency.ImageOptions.LargeImage")));
             this.btnEditAgency.Name = "btnEditAgency";
+            this.btnEditAgency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditAgency_ItemClick);
             // 
             // btnDeleteAgency
             // 
@@ -144,6 +145,7 @@
             this.btnDeleteAgency.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteAgency.ImageOptions.Image")));
             this.btnDeleteAgency.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteAgency.ImageOptions.LargeImage")));
             this.btnDeleteAgency.Name = "btnDeleteAgency";
+            this.btnDeleteAgency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDeleteAgency_ItemClick);
             // 
             // btnAddRange
             // 
@@ -161,6 +163,7 @@
             this.btnEditRange.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEditRange.ImageOptions.Image")));
             this.btnEditRange.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEditRange.ImageOptions.LargeImage")));
             this.btnEditRange.Name = "btnEditRange";
+            this.btnEditRange.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEditRange_ItemClick);
             // 
             // btnDeleteRange
             // 
@@ -209,7 +212,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.gridControlRanges);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1083, 593);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1069, 522);
             this.splitContainerControl1.SplitterPosition = 506;
             this.splitContainerControl1.TabIndex = 1;
             // 
@@ -220,7 +223,7 @@
             this.gridControlAgencies.MainView = this.tileViewAgencies;
             this.gridControlAgencies.MenuManager = this.ribbonControlAgencyManagement;
             this.gridControlAgencies.Name = "gridControlAgencies";
-            this.gridControlAgencies.Size = new System.Drawing.Size(506, 593);
+            this.gridControlAgencies.Size = new System.Drawing.Size(506, 522);
             this.gridControlAgencies.TabIndex = 0;
             this.gridControlAgencies.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileViewAgencies});
@@ -233,6 +236,7 @@
             this.colRange});
             this.tileViewAgencies.GridControl = this.gridControlAgencies;
             this.tileViewAgencies.Name = "tileViewAgencies";
+            this.tileViewAgencies.OptionsTiles.ItemSize = new System.Drawing.Size(222, 120);
             this.tileViewAgencies.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.Kanban;
             this.tileViewAgencies.OptionsTiles.RowCount = 0;
             this.tileViewAgencies.OptionsTiles.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Top;
@@ -284,7 +288,7 @@
             this.gridControlRanges.MainView = this.gridViewRanges;
             this.gridControlRanges.MenuManager = this.ribbonControlAgencyManagement;
             this.gridControlRanges.Name = "gridControlRanges";
-            this.gridControlRanges.Size = new System.Drawing.Size(572, 593);
+            this.gridControlRanges.Size = new System.Drawing.Size(558, 522);
             this.gridControlRanges.TabIndex = 0;
             this.gridControlRanges.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewRanges});
@@ -308,43 +312,46 @@
             // 
             this.colRangeId.FieldName = "RangeId";
             this.colRangeId.Name = "colRangeId";
-            this.colRangeId.Visible = true;
-            this.colRangeId.VisibleIndex = 0;
             // 
             // colWarehouseId
             // 
+            this.colWarehouseId.Caption = "Numer Magazynu";
             this.colWarehouseId.FieldName = "WarehouseId";
             this.colWarehouseId.Name = "colWarehouseId";
             this.colWarehouseId.Visible = true;
-            this.colWarehouseId.VisibleIndex = 1;
+            this.colWarehouseId.VisibleIndex = 0;
             // 
             // colAgencyId
             // 
+            this.colAgencyId.Caption = "Numer Agencji";
             this.colAgencyId.FieldName = "AgencyId";
             this.colAgencyId.Name = "colAgencyId";
             this.colAgencyId.Visible = true;
-            this.colAgencyId.VisibleIndex = 2;
+            this.colAgencyId.VisibleIndex = 1;
             // 
             // colRangeFrom
             // 
+            this.colRangeFrom.Caption = "Zakres Od";
             this.colRangeFrom.FieldName = "RangeFrom";
             this.colRangeFrom.Name = "colRangeFrom";
             this.colRangeFrom.Visible = true;
-            this.colRangeFrom.VisibleIndex = 3;
+            this.colRangeFrom.VisibleIndex = 2;
             // 
             // colRangeTo
             // 
+            this.colRangeTo.Caption = "Zakres Do";
             this.colRangeTo.FieldName = "RangeTo";
             this.colRangeTo.Name = "colRangeTo";
             this.colRangeTo.Visible = true;
-            this.colRangeTo.VisibleIndex = 4;
+            this.colRangeTo.VisibleIndex = 3;
             // 
             // colTotalRange
             // 
+            this.colTotalRange.Caption = "Całkowity Zakres";
             this.colTotalRange.FieldName = "TotalRange";
             this.colTotalRange.Name = "colTotalRange";
             this.colTotalRange.Visible = true;
-            this.colTotalRange.VisibleIndex = 5;
+            this.colTotalRange.VisibleIndex = 4;
             // 
             // colAgency
             // 
@@ -376,7 +383,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 734);
+            this.ClientSize = new System.Drawing.Size(1069, 663);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.ribbonControlAgencyManagement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
