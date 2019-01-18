@@ -136,7 +136,7 @@
             this.simpleButtonAddEdit.Size = new System.Drawing.Size(112, 49);
             this.simpleButtonAddEdit.TabIndex = 10;
             this.simpleButtonAddEdit.Text = "Dodaj";
-            this.simpleButtonAddEdit.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.simpleButtonAddEdit.Click += new System.EventHandler(this.simpleButtonAddEdit_Click);
             // 
             // simpleButtonCancel
             // 
@@ -147,7 +147,7 @@
             this.simpleButtonCancel.Size = new System.Drawing.Size(119, 49);
             this.simpleButtonCancel.TabIndex = 11;
             this.simpleButtonCancel.Text = "Anuluj";
-            this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButtonCalcel_Click);
             // 
             // RangeAdder
             // 
