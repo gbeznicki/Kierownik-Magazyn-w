@@ -63,8 +63,9 @@ namespace Kierownik_Magazynów.AgenciesManagement
         {
             int selectedAgency = gridViewRanges.GetFocusedDataRow().Field<int>("AgencyId");
             int selectedWarehouse = gridViewRanges.GetFocusedDataRow().Field<int>("WarehouseId");
+            int selectedRange = gridViewRanges.GetFocusedDataRow().Field<int>("RangeId");
 
-            RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, selectedAgency, selectedWarehouse, ref agencyManagementDataService);
+            RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, selectedAgency, selectedWarehouse, selectedRange, ref agencyManagementDataService);
             rangeAdder.Show();
             ReloadRanges();
         }

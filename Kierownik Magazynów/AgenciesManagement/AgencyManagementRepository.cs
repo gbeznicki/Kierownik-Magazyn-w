@@ -1,26 +1,24 @@
 using Kierownik_Magazynów.Database;
-using System;
-using System.Data;
 using System.Data.Entity;
 
 namespace AgenciesManagement
 {
-	public class AgencyManagementRepository
-	{
+    public class AgencyManagementRepository
+    {
         private WarehouseManagerEntitiesAgencies agencyDataBase;
 
         public AgencyManagementRepository()
         {
-            this.agencyDataBase = new WarehouseManagerEntitiesAgencies();
+            agencyDataBase = new WarehouseManagerEntitiesAgencies();
         }
 
         public DbSet<Range> GetRanges()
-		{
-			return agencyDataBase.Range;
-		}
+        {
+            return agencyDataBase.Range;
+        }
 
-		public string AddRange(int warehouseId, int agencyId, int rangeFrom, int rangeTo, int totalRange)
-		{
+        public string AddRange(int warehouseId, int agencyId, int rangeFrom, int rangeTo, int totalRange)
+        {
             Range rangeToAdd = new Range();
             rangeToAdd.WarehouseId = warehouseId;
             rangeToAdd.AgencyId = agencyId;
@@ -29,43 +27,56 @@ namespace AgenciesManagement
             rangeToAdd.TotalRange = totalRange;
             agencyDataBase.Range.Add(rangeToAdd);
             agencyDataBase.SaveChanges();
-			return "Dodano zakres";
-		}
+            return "Dodano zakres";
+        }
 
         internal DbSet<Warehouse> GetWarehouses()
         {
             return agencyDataBase.Warehouse;
         }
 
-        public string EditRange(int rangeId, int rangeFrom, int rangeTo)
-		{
-			return null;
-		}
+        public string EditRange(int rangeId, int rangeFrom, int rangeTo, int totalRange)
+        {
+            Range toEdit = agencyDataBase.Range.Find(rangeId);
+            if (toEdit != null)
+            {
+                toEdit.RangeFrom = rangeFrom;
+                toEdit.RangeTo = rangeTo;
+                toEdit.TotalRange = totalRange;
+                agencyDataBase.SaveChanges();
+                return "Zaktualizowano zakres";
+            }
+            else
+            {
+                return "B³¹d przy aktualizacji nazwy agencji";
 
-		public string DeleteRange(int rangeId)
-		{
-			return null;
-		}
+            }
+        }
 
-		public DbSet<Agency> GetAgencies()
-		{
-			return agencyDataBase.Agency;
-		}
+        public string DeleteRange(int rangeId)
+        {
+            return null;
+        }
 
-		public string AddAgency(string agencyName)
-		{
+        public DbSet<Agency> GetAgencies()
+        {
+            return agencyDataBase.Agency;
+        }
+
+        public string AddAgency(string agencyName)
+        {
             Agency agencyToAdd = new Agency();
             agencyToAdd.AgencyName = agencyName;
             agencyDataBase.Agency.Add(agencyToAdd);
             agencyDataBase.SaveChanges();
 
-			return "Dodano agencjê";
-		}
+            return "Dodano agencjê";
+        }
 
-		public string EditAgency(int agencyId, string agencyName)
-		{
+        public string EditAgency(int agencyId, string agencyName)
+        {
             Agency toEdit = agencyDataBase.Agency.Find(agencyId);
-            if(toEdit != null)
+            if (toEdit != null)
             {
                 toEdit.AgencyName = agencyName;
                 agencyDataBase.SaveChanges();
@@ -75,12 +86,12 @@ namespace AgenciesManagement
             {
                 return "B³¹d przy aktualizacji nazwy agencji";
             }
-		}
+        }
 
-		public string DeleteAgency(int agencyId)
-		{
+        public string DeleteAgency(int agencyId)
+        {
             Agency toDelete = agencyDataBase.Agency.Find(agencyId);
-            if(toDelete != null)
+            if (toDelete != null)
             {
                 agencyDataBase.Agency.Remove(toDelete);
                 agencyDataBase.SaveChanges();
@@ -92,7 +103,7 @@ namespace AgenciesManagement
             }
         }
 
-	}
+    }
 
 }
 

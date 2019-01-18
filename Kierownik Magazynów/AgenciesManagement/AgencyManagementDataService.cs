@@ -5,15 +5,15 @@ using System.Data.Entity;
 
 namespace AgenciesManagement
 {
-	public class AgencyManagementDataService
-	{
-		public DataTable Ranges;
+    public class AgencyManagementDataService
+    {
+        public DataTable Ranges;
 
-		public DataTable Agencies;
+        public DataTable Agencies;
 
         public DataTable Warehouses;
 
-		private AgencyManagementRepository agencyRepository;
+        private AgencyManagementRepository agencyRepository;
 
         public AgencyManagementDataService()
         {
@@ -32,8 +32,8 @@ namespace AgenciesManagement
             }
         }
 
-		public string GetRanges()
-		{
+        public string GetRanges()
+        {
             string message;
             try
             {
@@ -45,14 +45,14 @@ namespace AgenciesManagement
                 message = "Nieudana próba pobrania zakresów";
             }
             return message;
-		}
+        }
 
-		public string AddRange(int warehouseId, int agencyId, int rangeFrom, int rangeTo)
-		{
+        public string AddRange(int warehouseId, int agencyId, int rangeFrom, int rangeTo)
+        {
             string message;
             if (warehouseId != 0 && agencyId != 0 && rangeFrom > 0 && rangeTo > rangeFrom)
             {
-                return agencyRepository.AddRange(warehouseId, agencyId, rangeFrom, rangeTo, rangeTo-rangeFrom);
+                return agencyRepository.AddRange(warehouseId, agencyId, rangeFrom, rangeTo, rangeTo - rangeFrom);
             }
             else
             {
@@ -63,17 +63,41 @@ namespace AgenciesManagement
         }
 
         public string EditRange(int rangeId, int rangeFrom, int rangeTo)
-		{
-			return null;
-		}
+        {
+            string message;
+            if (rangeId >= 1 && rangeFrom > 0 && rangeTo > rangeFrom)
+            {
+                int totalRange = rangeTo - rangeFrom;
+                message = agencyRepository.EditRange(rangeId, rangeFrom, rangeTo, totalRange);
+            }
+            else if (rangeFrom >= rangeTo)
+            {
+                message = "Zakres do musi byæ wiêkszy od zakresu od";
+            }
+            else if (rangeTo == 0 || rangeFrom == 0)
+            {
+                message = "Zakres nie mo¿e byæ równy 0";
+            }
+            else if (rangeId < 1)
+            {
+                message = "B³êdny numer zakresu";
+            }
+            else
+            {
+                message = "B³¹d przy edycji zakresu";
+            }
+            return message;
+        }
 
-		public string DeleteRange(int rangeId)
-		{
-			return null;
-		}
 
-		public string GetAgencies()
-		{
+
+        public string DeleteRange(int rangeId)
+        {
+            return null;
+        }
+
+        public string GetAgencies()
+        {
             string message;
             try
             {
@@ -88,7 +112,7 @@ namespace AgenciesManagement
         }
 
         public string AddAgency(string agencyName)
-		{
+        {
             string message;
             if (agencyName.Length >= 1)
             {
@@ -102,11 +126,11 @@ namespace AgenciesManagement
         }
 
         public string EditAgency(int agencyId, string agencyName)
-		{
+        {
             string message;
             if (agencyName.Length >= 1 && agencyId > 0)
             {
-                message = agencyRepository.EditAgency(agencyId,agencyName);
+                message = agencyRepository.EditAgency(agencyId, agencyName);
             }
             else if (agencyName.Length < 1)
             {
@@ -120,9 +144,9 @@ namespace AgenciesManagement
         }
 
         public string DeleteAgency(int agencyId)
-		{
+        {
             string message;
-            if(agencyId > 0)
+            if (agencyId > 0)
             {
                 message = agencyRepository.DeleteAgency(agencyId);
             }
@@ -131,9 +155,9 @@ namespace AgenciesManagement
                 message = "B³êdny numer agencji";
             }
             return message;
-		}
+        }
 
-	}
 
+    }
 }
 
