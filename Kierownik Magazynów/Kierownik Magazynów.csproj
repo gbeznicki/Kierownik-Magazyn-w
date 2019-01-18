@@ -33,8 +33,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +63,107 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AgenciesManagement\AgencyManagementDataService.cs" />
+    <Compile Include="AgenciesManagement\AgencyManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AgenciesManagement\AgencyManagementForm.Designer.cs">
+      <DependentUpon>AgencyManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgenciesManagement\AgencyManagementRepository.cs" />
+    <Compile Include="AgenciesManagement\RangeAdder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgenciesManagement\RangeAdder.Designer.cs">
+      <DependentUpon>RangeAdder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Agency.cs">
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AgencyManagement.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgencyManagement.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AgencyManagement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AgencyManagement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DataBaseExtensions.cs" />
+    <Compile Include="Database\Employee.cs">
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeDetails.cs">
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeManagementEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagementEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeManagementEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeManagementEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\EmployeeNote.cs">
+      <DependentUpon>EmployeeManagementEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Range.cs">
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Warehouse.cs">
+      <DependentUpon>AgencyManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeManagement\EmployeeManagementDataService.cs" />
+    <Compile Include="EmployeeManagement\EmployeeManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagement\EmployeeManagementForm.Designer.cs">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeManagement\EmployeeManagementRepository.cs" />
+    <Compile Include="EmployeeManagement\SplashScreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeManagement\SplashScreen2.Designer.cs">
+      <DependentUpon>SplashScreen2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgenciesManagement\AgencyManagementForm.resx">
+      <DependentUpon>AgencyManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgenciesManagement\RangeAdder.resx">
+      <DependentUpon>RangeAdder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagement\EmployeeManagementForm.resx">
+      <DependentUpon>EmployeeManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeManagement\SplashScreen2.resx">
+      <DependentUpon>SplashScreen2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +173,32 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Database\EmployeeManagementEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeManagementEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram2.cd" />
+    <EntityDeploy Include="Database\AgencyManagement.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AgencyManagement.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\AgencyManagement.edmx.diagram">
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
+    </None>
+    <None Include="Database\EmployeeManagementEntities.edmx.diagram">
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\EmployeeManagement.EmployeeManagementDataService.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.Agency.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.AgencyEntities.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.DataBaseExtensions.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.Employee.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.EmployeeDetails.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.EmployeeNote.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.Range.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.Warehouse.datasource" />
+    <None Include="Properties\DataSources\Kierownik_Magazynów.Database.WarehouseManagerEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +211,31 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\AgencyManagement.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
+      <LastGenOutput>AgencyManagement.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\AgencyManagement.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AgencyManagement.edmx</DependentUpon>
+      <LastGenOutput>AgencyManagement.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\EmployeeManagementEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+      <LastGenOutput>EmployeeManagementEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\EmployeeManagementEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EmployeeManagementEntities.edmx</DependentUpon>
+      <LastGenOutput>EmployeeManagementEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
