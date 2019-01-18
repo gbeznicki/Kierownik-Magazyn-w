@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Kierownik_Magazynów.EmployeeManagement.SplashScreen2), true, true);
             this.labelChooseFunction = new System.Windows.Forms.Label();
             this.buttonAgencies = new System.Windows.Forms.Button();
             this.buttonEmployees = new System.Windows.Forms.Button();
@@ -74,6 +75,10 @@
             this.buttonEmployees.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonEmployees.UseVisualStyleBackColor = true;
             this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
             // 
             // MainForm
             // 
