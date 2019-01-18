@@ -71,7 +71,16 @@ namespace Kierownik_Magazynów.AgenciesManagement
 
         private void btnDeleteRange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            int rangeId = gridViewRanges.GetFocusedDataRow().Field<int>("RangeId");
+            if(rangeId != 0)
+            {
+                DialogResult dialogResult = XtraMessageBox.Show("Czy na pewno chcesz usunąć wybrany zakres?", "Usunięcie zakresu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    XtraMessageBox.Show(agencyManagementDataService.DeleteRange(rangeId), "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReloadRanges();
+                }
+            }
         }
 
         private void btnAddAgency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
