@@ -228,6 +228,7 @@
             this.gridControlAgencies.TabIndex = 0;
             this.gridControlAgencies.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileViewAgencies});
+            this.gridControlAgencies.MouseEnter += new System.EventHandler(this.gridControlAgencies_MouseEnter);
             // 
             // tileViewAgencies
             // 
@@ -293,6 +294,7 @@
             this.gridControlRanges.TabIndex = 0;
             this.gridControlRanges.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewRanges});
+            this.gridControlRanges.MouseEnter += new System.EventHandler(this.gridControlRanges_MouseEnter);
             // 
             // gridViewRanges
             // 

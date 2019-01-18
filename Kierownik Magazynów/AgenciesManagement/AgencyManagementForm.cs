@@ -125,5 +125,15 @@ namespace Kierownik_Magazynów.AgenciesManagement
         }
         #endregion
 
+        private void gridControlAgencies_MouseEnter(object sender, EventArgs e)
+        {
+            this.ribbonControlAgencyManagement.SelectedPage = this.ribbonPageAgencies;
+
+        }
+
+        private void gridControlRanges_MouseEnter(object sender, EventArgs e)
+        {
+            this.ribbonControlAgencyManagement.SelectedPage = this.ribbonPageRanges;
+        }
     }
 }
