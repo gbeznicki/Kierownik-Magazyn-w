@@ -47,11 +47,11 @@
             // 
             // textEditFrom
             // 
-            this.textEditFrom.Location = new System.Drawing.Point(103, 64);
+            this.textEditFrom.Location = new System.Drawing.Point(66, 64);
             this.textEditFrom.Name = "textEditFrom";
             this.textEditFrom.Properties.Mask.EditMask = "[0-9]{1,7}";
             this.textEditFrom.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEditFrom.Size = new System.Drawing.Size(100, 20);
+            this.textEditFrom.Size = new System.Drawing.Size(184, 20);
             this.textEditFrom.TabIndex = 2;
             // 
             // labelControl1
@@ -80,11 +80,11 @@
             // 
             // textEditTo
             // 
-            this.textEditTo.Location = new System.Drawing.Point(103, 90);
+            this.textEditTo.Location = new System.Drawing.Point(66, 90);
             this.textEditTo.Name = "textEditTo";
             this.textEditTo.Properties.Mask.EditMask = "[0-9]{1,7}";
             this.textEditTo.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEditTo.Size = new System.Drawing.Size(100, 20);
+            this.textEditTo.Size = new System.Drawing.Size(184, 20);
             this.textEditTo.TabIndex = 6;
             // 
             // labelControl4
@@ -97,7 +97,7 @@
             // 
             // lookUpEditAgencies
             // 
-            this.lookUpEditAgencies.Location = new System.Drawing.Point(103, 8);
+            this.lookUpEditAgencies.Location = new System.Drawing.Point(66, 8);
             this.lookUpEditAgencies.Name = "lookUpEditAgencies";
             this.lookUpEditAgencies.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.lookUpEditAgencies.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -109,12 +109,12 @@
             this.lookUpEditAgencies.Properties.DisplayMember = "AgencyName";
             this.lookUpEditAgencies.Properties.NullText = "wybierz agencję:";
             this.lookUpEditAgencies.Properties.ValueMember = "AgencyId";
-            this.lookUpEditAgencies.Size = new System.Drawing.Size(100, 20);
+            this.lookUpEditAgencies.Size = new System.Drawing.Size(184, 20);
             this.lookUpEditAgencies.TabIndex = 8;
             // 
             // lookUpEditWarehouse
             // 
-            this.lookUpEditWarehouse.Location = new System.Drawing.Point(103, 34);
+            this.lookUpEditWarehouse.Location = new System.Drawing.Point(66, 34);
             this.lookUpEditWarehouse.Name = "lookUpEditWarehouse";
             this.lookUpEditWarehouse.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -125,15 +125,15 @@
             this.lookUpEditWarehouse.Properties.DisplayMember = "Name";
             this.lookUpEditWarehouse.Properties.NullText = "wybierz magazyn";
             this.lookUpEditWarehouse.Properties.ValueMember = "WarehouseId";
-            this.lookUpEditWarehouse.Size = new System.Drawing.Size(100, 20);
+            this.lookUpEditWarehouse.Size = new System.Drawing.Size(184, 20);
             this.lookUpEditWarehouse.TabIndex = 9;
             // 
             // simpleButtonAddEdit
             // 
-            this.simpleButtonAddEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButtonAddEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonAddEdit.ImageOptions.Image")));
             this.simpleButtonAddEdit.Location = new System.Drawing.Point(13, 127);
             this.simpleButtonAddEdit.Name = "simpleButtonAddEdit";
-            this.simpleButtonAddEdit.Size = new System.Drawing.Size(75, 49);
+            this.simpleButtonAddEdit.Size = new System.Drawing.Size(112, 49);
             this.simpleButtonAddEdit.TabIndex = 10;
             this.simpleButtonAddEdit.Text = "Dodaj";
             this.simpleButtonAddEdit.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -141,10 +141,10 @@
             // simpleButtonCancel
             // 
             this.simpleButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.simpleButtonCancel.Location = new System.Drawing.Point(128, 127);
+            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
+            this.simpleButtonCancel.Location = new System.Drawing.Point(131, 127);
             this.simpleButtonCancel.Name = "simpleButtonCancel";
-            this.simpleButtonCancel.Size = new System.Drawing.Size(75, 49);
+            this.simpleButtonCancel.Size = new System.Drawing.Size(119, 49);
             this.simpleButtonCancel.TabIndex = 11;
             this.simpleButtonCancel.Text = "Anuluj";
             this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -155,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.simpleButtonCancel;
-            this.ClientSize = new System.Drawing.Size(218, 188);
+            this.ClientSize = new System.Drawing.Size(262, 188);
             this.Controls.Add(this.simpleButtonCancel);
             this.Controls.Add(this.simpleButtonAddEdit);
             this.Controls.Add(this.lookUpEditWarehouse);
