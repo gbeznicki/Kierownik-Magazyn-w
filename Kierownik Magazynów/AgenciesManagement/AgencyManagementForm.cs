@@ -18,10 +18,6 @@ namespace Kierownik_Magazynów.AgenciesManagement
         private void AgencyManagementForm_Load(object sender, EventArgs e)
         {
             LoadData();
-            //this.agencyManagementDataService.GetAgencies();
-            //this.gridControlAgencies.DataSource = agencyManagementDataService.Agencies;
-
-            //this.agencyManagementDataService.GetRanges();
         }
 
         private void LoadData()
@@ -37,7 +33,6 @@ namespace Kierownik_Magazynów.AgenciesManagement
             gridControlRanges.Refresh();
 
             agencyManagementDataService.GetWarehouses();
-
         }
 
         private void ReloadAgencies()
@@ -72,6 +67,11 @@ namespace Kierownik_Magazynów.AgenciesManagement
             RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, selectedAgency, selectedWarehouse, ref agencyManagementDataService);
             rangeAdder.Show();
             ReloadRanges();
+        }
+
+        private void btnDeleteRange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
 
         private void btnAddAgency_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -172,6 +172,7 @@
             this.btnDeleteRange.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteRange.ImageOptions.Image")));
             this.btnDeleteRange.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDeleteRange.ImageOptions.LargeImage")));
             this.btnDeleteRange.Name = "btnDeleteRange";
+            this.btnDeleteRange.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDeleteRange_ItemClick);
             // 
             // ribbonPageAgencies
             // 
