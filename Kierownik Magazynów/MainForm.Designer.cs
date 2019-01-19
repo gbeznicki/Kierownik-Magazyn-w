@@ -59,6 +59,7 @@
             this.buttonAgencies.Text = "Agencje";
             this.buttonAgencies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonAgencies.UseVisualStyleBackColor = true;
+            this.buttonAgencies.Click += new System.EventHandler(this.buttonAgencies_Click);
             // 
             // buttonEmployees
             // 
