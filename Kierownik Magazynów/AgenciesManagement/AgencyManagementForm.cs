@@ -66,7 +66,7 @@ namespace Kierownik_Magazynów.AgenciesManagement
             int selectedRange = gridViewRanges.GetFocusedDataRow().Field<int>("RangeId");
 
             RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, selectedAgency, selectedWarehouse, selectedRange, ref agencyManagementDataService);
-            rangeAdder.Show();
+            rangeAdder.ShowDialog();
             ReloadRanges();
         }
 
