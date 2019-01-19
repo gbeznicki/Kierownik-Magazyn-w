@@ -55,7 +55,7 @@ namespace Kierownik_Magazynów.AgenciesManagement
         private void btnAddRange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             RangeAdder rangeAdder = new RangeAdder(agencyManagementDataService.Agencies, agencyManagementDataService.Warehouses, ref agencyManagementDataService);
-            rangeAdder.Show();
+            rangeAdder.ShowDialog();
             ReloadRanges();
         }
 
