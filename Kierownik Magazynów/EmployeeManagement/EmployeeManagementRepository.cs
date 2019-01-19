@@ -34,6 +34,7 @@ namespace EmployeeManagement
             EmployeeNote noteToAdd = new EmployeeNote();
             noteToAdd.EmployeeId = employeeId;
             noteToAdd.NoteText = noteText;
+            noteToAdd.CreationDate = System.DateTime.Now;
             employeeDataBase.EmployeeNotes.Add(noteToAdd);
             employeeDataBase.SaveChanges();
             return "Dodano notatkê";
@@ -41,10 +42,11 @@ namespace EmployeeManagement
 
 		public string DeleteNote(int noteId)
 		{
-            var noteToDelete = employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId);
+            var noteToDelete = employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId).FirstOrDefault();
             if (noteToDelete != null)
             {
                 employeeDataBase.EmployeeNotes.Remove((EmployeeNote)noteToDelete);
+                employeeDataBase.SaveChanges();
                 return "Usuniêto notatkê";
             }
             else
@@ -60,6 +62,7 @@ namespace EmployeeManagement
             {
                 employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId).First().NoteText = noteText;
                 employeeDataBase.EmployeeNotes.Where(note => note.NoteId == noteId).First().ModifyDate = System.DateTime.Now;
+                employeeDataBase.SaveChanges();
                 return "Pomyœlnie zedytowano notatkê";
             }
             else

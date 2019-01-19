@@ -27,6 +27,14 @@ namespace Kierownik_Magazynów.EmployeeManagement
             LoadData();
         }
 
+        private void ReloadEmployeeNotes(int employeeId)
+        {
+            gridControlNotes.DataSource = null;
+            employeeManagementDataService.GetEmployeeNotes(employeeId);
+            gridControlNotes.DataSource = employeeManagementDataService.EmployeeNotes;
+            gridControlNotes.RefreshDataSource();
+        }
+
         private void gridViewEmployee_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int employeeId = gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId");
@@ -43,18 +51,40 @@ namespace Kierownik_Magazynów.EmployeeManagement
             var result = XtraInputBox.Show("Dodaj notatkę", "Treść notatki:", "Tutaj wpisz treść...");
             if (!String.IsNullOrEmpty(result))
             {
-                XtraMessageBox.Show(employeeManagementDataService.AddNote(result.ToString(), gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId")));
+                int employeeId = gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId");
+                XtraMessageBox.Show(employeeManagementDataService.AddNote(result.ToString(), employeeId));
+                ReloadEmployeeNotes(employeeId);
             }
         }
 
         private void buttonEditNote_Click(object sender, EventArgs e)
         {
-
+            var result = XtraInputBox.Show("Edytuj notatkę", "Treść notatki:", "Tutaj wpisz treść...");
+            if (!String.IsNullOrEmpty(result))
+            {
+                int employeeId = gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId");
+                XtraMessageBox.Show(employeeManagementDataService.EditNote(result.ToString(), tileViewNotes.GetFocusedDataRow().Field<int>("NoteId")));
+                ReloadEmployeeNotes(employeeId);
+            }
         }
 
         private void buttonDeleteNote_Click(object sender, EventArgs e)
         {
-
+            int noteId = -1;
+            try
+            {
+                noteId = tileViewNotes.GetFocusedDataRow().Field<int>("NoteId");
+            }
+            catch
+            {
+                XtraMessageBox.Show("Wybierz notatkę");
+            }
+            if (noteId != -1)
+            {
+                int employeeId = gridViewEmployee.GetFocusedDataRow().Field<int>("EmployeeId");
+                XtraMessageBox.Show(employeeManagementDataService.DeleteNote(noteId));
+                ReloadEmployeeNotes(employeeId);
+            }
         }
     }
 }
